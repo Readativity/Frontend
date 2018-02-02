@@ -6,18 +6,17 @@ import Header from "./Header";
 import About from "./About";
 import Footer from ".Footer";
 
-
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Header />
-          <Router>
-            <Route exact path="/" component={About}/>
-            <Route path="/about" component={About}/>
-            <Route path="/get-started">
-            <Route path="/reader"/>
-          </Router>
+        <Router>
+          <Route exact path="/" component={About} />
+          <Route path="/about" component={About} />
+          <Route path="/get-started" />
+          <Route path="/reader" />
+        </Router>
         <Footer />
       </div>
     );
@@ -25,4 +24,3 @@ class App extends Component {
 }
 
 export default App;
-
