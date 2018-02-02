@@ -15,7 +15,7 @@ class App extends Component {
           <Router>
             <Route exact path="/" component={About}/>
             <Route path="/about" component={About}/>
-            <Route path="/get-started">
+            <Route path="/get-started"/>
             <Route path="/reader"/>
           </Router>
         <Footer />
@@ -25,4 +25,3 @@ class App extends Component {
 }
 
 export default App;
-
