@@ -61,6 +61,19 @@ input {
     transform: rotate(360deg);
   }
 }
+.ReactModal__Overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.modal {
+  width: 40%;
+  height: 40%;
+  background-color: #d7f6f6;
+  border: solid gray 1px;
+  border-radius: 2px;
+}
 
 .hidden {
   display: none;
