@@ -1,28 +1,57 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Roboto:400,700");
+
+:root {
+  --roboto: "Roboto", sans-serif;
+  --open-sans: "Open Sans Condensed", sans-serif;
+  --blue: #136efb;
+  --yellow: #fdd130;
+  --light-gray: #e5e8ee;
+  --gray: #b1b5bd;
+  --dark-gray: #3c3c3c;
+}
+
+h1,
+h2 {
+  color: var(--grey);
+  font-family: var(--open-sans);
+}
+
+h3,
+h4,
+body,
+a,
+ul,
+li,
+select,
+option,
+input {
+  color: var(--dark-gray);
+  font-family: var(--roboto);
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.main{
+  height: 70vh;
+  width: 100vw;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.ReactModal__Overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.modal {
+  width: 40%;
+  height: 40%;
+  background-color: #d7f6f6;
+  border: solid gray 1px;
+  border-radius: 2px;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.hidden {
+  display: none;
 }
