@@ -27,12 +27,12 @@ class Login extends React.Component {
                 <input name="username" placeholder="Demouser" />
                 <label htmlFor="password"> Password</label>
                 <input name="password" placeholder="1234"/>
-                <input type="submit" name="submit" defaultValue="Sign In" />
+                <Submit type="submit" name="submit" defaultValue="Sign In" />
               </FormLogin>
             </LoginDiv>
           </div>
           <div className={((this.props.loginView === 'link') ? ' ' : 'hidden')}>
-            <h1>Link</h1>
+            <Link to={'/reader'}> Start Reading </Link>
           </div>
         </Modal>
     )
@@ -47,6 +47,7 @@ const LoginDiv = styled.div `
 const Close = styled.img `
     grid-row: 1/2;
     grid-column: 1/2;
+    width: 3rem;
     justify-self: end;
     align-self: start;
 `
@@ -64,6 +65,12 @@ const FormLogin = styled.form `
     flex-flow: column;
     justify-items: center;
     align-items: center;
+`
+const Submit = styled.input `
+    width: 60%;
+    margin-top: 2rem;
+    background-color: red;
+    color: white;
 `
 
 export default Login;

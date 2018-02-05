@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Login from "../login";
 
 const Splash = (props) => (
-  <main>
+  <main className= "main">
     <Link to="">
       <Button id="login-button" className="splash-button" onClick={props.openModal}>
         Login
@@ -16,7 +16,7 @@ const Splash = (props) => (
     </Button>
     <Login loginView={props.loginView} handleLogin={props.handleLogin} openModal={props.openModal} closeModal={props.closeModal} modalIsOpen={props.modalIsOpen} />
   </main>
-); 
+);
 
 export default Splash;
 
