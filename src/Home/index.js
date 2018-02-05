@@ -1,21 +1,31 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import "../App.css";
+import styled from "styled-components";
 
 const Splash = () => (
   <main>
-    <Link to="/reader">
-      <div className="splash-button">Start Reading</div>
+    <Link to="">
+      <Button id="login-button" className="splash-button">
+        Login
+      </Button>
     </Link>
-    <Link to="/interests">
-      <div className="new-member">Not a member yet? Sign up here</div>
-    </Link>
-    <Link to="/stats">
-      <div className="splash-button">Check Your Stats</div>
-    </Link>
-    <Link to="/about">
-      <div className="about-link">About Readability</div>
-    </Link>
+    <Button id="new-user-button" className="splash-button">
+      Create an Account
+    </Button>
   </main>
 );
 
 export default Splash;
+
+const Button = styled.div`
+  background-color: white;
+  border: 3px solid var(--blue);
+  border-radius: 8px;
+  color: var(--blue);
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 3rem 2rem;
+  padding: 1rem;
+  text-decoration: none;
+`;

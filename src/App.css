@@ -1,3 +1,34 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Roboto:400,700");
+
+:root {
+  --roboto: "Roboto", sans-serif;
+  --open-sans: "Open Sans Condensed", sans-serif;
+  --blue: #136efb;
+  --yellow: #fdd130;
+  --light-gray: #e5e8ee;
+  --gray: #b1b5bd;
+  --dark-gray: #3c3c3c;
+}
+
+h1,
+h2 {
+  color: var(--grey);
+  font-family: var(--open-sans);
+}
+
+h3,
+h4,
+body,
+a,
+ul,
+li,
+select,
+option,
+input {
+  color: var(--dark-gray);
+  font-family: var(--roboto);
+}
+
 .App {
   text-align: center;
 }
@@ -23,6 +54,10 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
