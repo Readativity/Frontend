@@ -25,7 +25,11 @@ const Button = styled.div`
   color: var(--blue);
   font-size: 1.4em;
   font-weight: bold;
+<<<<<<< HEAD
   margin: 3rem 2rem;
+=======
+  margin: 2rem 2rem;
+>>>>>>> f9f0978db351ec13bb777ee8fdea7e508db4deb3
   padding: 1rem;
   text-decoration: none;
 `;
