@@ -11,6 +11,7 @@ class Reader extends React.Component {
     };
   }
   componentDidMount() {
+    console.log("props", this.props);
     const baseUrl = "https://newsapi.org/v2/everything?language=en";
     const domains = [
       "techcrunch.com",
@@ -28,9 +29,9 @@ class Reader extends React.Component {
       }
     }
     const interests = [
-      this.props.userinfo.firstInterest,
-      this.props.userinfo.secondInterest,
-      this.props.userinfo.thirdInterest
+      this.props.userInfo.firstInterest,
+      this.props.userInfo.secondInterest,
+      this.props.userInfo.thirdInterest
     ];
     const randomNum = Math.floor(Math.random() * interests.length);
     const interestsQuery = "&q=" + interests[randomNum];
@@ -45,9 +46,9 @@ class Reader extends React.Component {
           Math.random() * response.articles.length
         );
         this.setState({
-          article: response.articles[randomArticle].url
+          url: response.articles[randomArticle].url
         });
-        console.log(this.state.article);
+        console.log("this.state.article", this.state.article);
       })
       .catch(err => console.log(err));
   }
