@@ -55,7 +55,7 @@ class Reader extends React.Component {
   render() {
     return (
       <div>
-        <Iframe url={this.state.article} />
+        <Iframe url={this.state.url} />
         <NextButton />
       </div>
     );
