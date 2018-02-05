@@ -1,16 +1,20 @@
-<<<<<<< HEAD
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import About from "./about";
-import Iframe from "./Reader/Iframe";
+import Reader from "./Reader";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: []
+      users: [],
+      userId: '',
+      modalIsOpen: false
     };
+    this.handleLogin = this.handleLogin.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidMount() {
@@ -24,17 +28,37 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+
+  handleLogin(e) {
+    e.preventDefault();
+    let username = e.target[0].value;
+    let password = e.target[1].value;
+
+
+    this.state.users.forEach(user => {
+      if(user.username === username && user.password === password) {
+        this.setState({userId:user.id})
+      }
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <Router>
           <div>
-            <Route exact path="/" component={About} />
+            <Route exact path="/" component={Splash openModal={this.openModal} closeModal={this.closeModal} handleLogin={this.handleLogin} } />
             <Route path="/about" component={About} />
             <Route path="/get-started" />
             <Route
               path="/reader"
-              component={() => <Iframe article={this.state.article} />}
+              component={() => <Reader userId={this.state.userId} />}
             />
           </div>
         </Router>
@@ -44,34 +68,3 @@ class App extends Component {
 }
 
 export default App;
-=======
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import About from "./about";
-import Reader from "./Reader";
-import Header from "./Header";
-import Footer from "./Footer";
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Header />
-        <Router>
-          <div>
-            <Route exact path="/" component={About} />
-            <Route path="/about" component={About} />
-            <Route path="/get-started" />
-            <Route path="/reader" component={Reader} />
-          </div>
-        </Router>
-        <Footer />
-      </div>
-    );
-  }
-}
-
-export default App;
->>>>>>> 76d9967f822234507c24b961d25e15fcde470f89
