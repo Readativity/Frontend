@@ -18,8 +18,8 @@ class Login extends React.Component {
         }}
         contentLabel="Login"
         >
-          <div>
-            <LoginDiv>
+          <div className={((this.props.loginView === 'form') ? ' ' : 'hidden')}>
+            <LoginDiv >
               <Close src="./assets/close.png" alt="close" onClick={this.props.closeModal}/>
               <Header>Login</Header>
               <FormLogin onSubmit={this.props.handleLogin}>
@@ -31,7 +31,8 @@ class Login extends React.Component {
               </FormLogin>
             </LoginDiv>
           </div>
-          <div>
+          <div className={((this.props.loginView === 'link') ? ' ' : 'hidden')}>
+            <h1>Link</h1>
           </div>
         </Modal>
     )
