@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import About from "./about";
-import Reader from "./Reader";
-import Splash from "./Home";
+import Iframe from "./Reader/Iframe";
 
 class App extends Component {
   constructor(props) {
@@ -14,9 +13,6 @@ class App extends Component {
       modalIsOpen: false,
       loginView: "form"
     };
-    this.handleLogin = this.handleLogin.bind(this);
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidMount() {
