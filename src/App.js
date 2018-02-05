@@ -58,7 +58,11 @@ class App extends Component {
             <Route path="/get-started" />
             <Route
               path="/reader"
+<<<<<<< HEAD
               component={() => <Reader userId={this.state.userId} />}
+=======
+              component={() => <Iframe userinfo={this.state.userinfo} />}
+>>>>>>> f9f0978db351ec13bb777ee8fdea7e508db4deb3
             />
           </div>
         </Router>
