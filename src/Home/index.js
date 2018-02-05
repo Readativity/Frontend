@@ -14,9 +14,9 @@ const Splash = (props) => (
     <Button id="new-user-button" className="splash-button">
       Create an Account
     </Button>
-    <Login handleLogin={props.handleLogin} openModal={props.openModal} closeModal={props.closeModal} modalIsOpen={props.modalIsOpen} />
+    <Login loginView={props.loginView} handleLogin={props.handleLogin} openModal={props.openModal} closeModal={props.closeModal} modalIsOpen={props.modalIsOpen} />
   </main>
-);
+); 
 
 export default Splash;
 

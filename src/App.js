@@ -11,7 +11,8 @@ class App extends Component {
     this.state = {
       users: [],
       userInfo: {},
-      modalIsOpen: false
+      modalIsOpen: false,
+      loginView:'form'
     };
     this.handleLogin = this.handleLogin.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -40,14 +41,15 @@ class App extends Component {
     e.preventDefault();
     let username = e.target[0].value;
     let password = e.target[1].value;
-    console.log(username)
-    console.log(password)
+
 
     this.state.users.forEach(user => {
       if(user.username === username && user.password === password) {
         this.setState({userInfo:user})
       }
     })
+
+    this.setState({loginView:"link"})
   }
 
   render() {
@@ -57,7 +59,7 @@ class App extends Component {
           <div>
             <Route
               exact path="/"
-              component={() => <Splash openModal={this.openModal} closeModal={this.closeModal} modalIsOpen={this.state.modalIsOpen} handleLogin={this.handleLogin} />}
+              component={() => <Splash loginView={this.state.loginView} openModal={this.openModal} closeModal={this.closeModal} modalIsOpen={this.state.modalIsOpen} handleLogin={this.handleLogin} />}
               />
             <Route path="/about" component={About} />
             <Route path="/get-started" />
