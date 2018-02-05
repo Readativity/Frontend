@@ -47,8 +47,8 @@ class App extends Component {
         this.setState({ userInfo: user });
       }
     });
-
     this.setState({ loginView: "link" });
+    console.log(this.state);
   }
 
   render() {
@@ -71,7 +71,10 @@ class App extends Component {
             />
             <Route path="/about" component={About} />
             <Route path="/get-started" />
-            <Route path="/reader" component={() => <Reader userInfo={this.state.userInfo} />} />
+            <Route
+              path="/reader"
+              component={() => <Reader userInfo={this.state.userInfo} />}
+            />
           </div>
         </Router>
       </div>

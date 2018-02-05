@@ -11,7 +11,7 @@ class Reader extends React.Component {
     };
   }
   componentDidMount() {
-    console.log("props", this.props);
+    console.log("props", this.props.userInfo);
     const baseUrl = "https://newsapi.org/v2/everything?language=en";
     const domains = [
       "techcrunch.com",
