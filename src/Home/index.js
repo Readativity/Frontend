@@ -2,17 +2,19 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "../App.css";
 import styled from "styled-components";
+import Login from "../login";
 
-const Splash = () => (
+const Splash = (props) => (
   <main>
     <Link to="">
-      <Button id="login-button" className="splash-button">
+      <Button id="login-button" className="splash-button" onClick={props.openModal}>
         Login
       </Button>
     </Link>
     <Button id="new-user-button" className="splash-button">
       Create an Account
     </Button>
+    <Login handleLogin={props.handleLogin} openModal={props.openModal} closeModal={props.closeModal} modalIsOpen={props.modalIsOpen} />
   </main>
 );
 

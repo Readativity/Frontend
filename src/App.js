@@ -3,13 +3,14 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import About from "./about";
 import Reader from "./Reader";
+import Splash from "./Home";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       users: [],
-      userId: '',
+      userInfo: {},
       modalIsOpen: false
     };
     this.handleLogin = this.handleLogin.bind(this);
@@ -39,11 +40,12 @@ class App extends Component {
     e.preventDefault();
     let username = e.target[0].value;
     let password = e.target[1].value;
-
+    console.log(username)
+    console.log(password)
 
     this.state.users.forEach(user => {
       if(user.username === username && user.password === password) {
-        this.setState({userId:user.id})
+        this.setState({userInfo:user})
       }
     })
   }
@@ -53,16 +55,15 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <Route exact path="/" component={Splash openModal={this.openModal} closeModal={this.closeModal} handleLogin={this.handleLogin} } />
+            <Route
+              exact path="/"
+              component={() => <Splash openModal={this.openModal} closeModal={this.closeModal} modalIsOpen={this.state.modalIsOpen} handleLogin={this.handleLogin} />}
+              />
             <Route path="/about" component={About} />
             <Route path="/get-started" />
             <Route
               path="/reader"
-<<<<<<< HEAD
-              component={() => <Reader userId={this.state.userId} />}
-=======
-              component={() => <Iframe userinfo={this.state.userinfo} />}
->>>>>>> f9f0978db351ec13bb777ee8fdea7e508db4deb3
+              component={() => <Reader userInfo={this.state.userInfo} />}
             />
           </div>
         </Router>
