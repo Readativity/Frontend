@@ -15,7 +15,7 @@ class App extends Component {
       users: [],
       userInfo: {},
       modalIsOpen: false,
-      loginView: "form"
+      loginView: "form",
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -27,7 +27,7 @@ class App extends Component {
       .then(response => response.json())
       .then(userinfo => {
         this.setState({
-          users: userinfo.profiles
+          users: userinfo.profiles,
         });
       })
       .catch(err => console.log(err));
@@ -42,16 +42,16 @@ class App extends Component {
 
   handleLogin(e) {
     e.preventDefault();
-    let username = e.target[0].value;
-    let password = e.target[1].value;
+    const username = e.target[0].value;
+    const password = e.target[1].value;
 
     this.state.users.forEach(user => {
       if (user.username === username && user.password === password) {
         this.setState({ userInfo: user });
       }
     });
-
     this.setState({ loginView: "link" });
+    console.log(this.state);
   }
 
   render() {
@@ -74,8 +74,16 @@ class App extends Component {
               )}
             />
             <Route path="/about" component={About} />
+<<<<<<< HEAD
             <Route path="/signup" component={CreateAccount} />
             <Route path="/reader" component={() => <Reader userInfo={this.state.userInfo} />} />
+=======
+            <Route path="/get-started" />
+            <Route
+              path="/reader"
+              component={() => <Reader userInfo={this.state.userInfo} />}
+            />
+>>>>>>> 5763cbe1ef0189d68112e907abf23e5ac1d37283
             <Footer />
           </div>
         </Router>
