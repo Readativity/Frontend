@@ -5,10 +5,10 @@ import About from "./about";
 import Reader from "./Reader";
 import Splash from "./Home";
 import Header from "./Header";
-import Footer from "./Footer";
 import CreateAccount from "./Form";
 import Dashboard from "./Dashboard";
 import Stats from "./Stats";
+import Footer from "./Footer";
 
 class App extends Component {
   constructor(props) {
@@ -119,7 +119,7 @@ class App extends Component {
             <Route path="/dashboard" component={() => <Dashboard userInfo={this.state.userInfo}/> }/>
             <Route path="/stats" component={() => <Stats userInfo={this.state.userInfo} /> }/>
             <Route path="/reader" component={() => <Reader userInfo={this.state.userInfo} />} />
-            <Footer />
+            <Footer userInfo={this.state.userInfo} />
           </div>
         </Router>
       </div>

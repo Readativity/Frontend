@@ -6,18 +6,20 @@ const About = props => {
 
 
   return (
-    <div className="main">
-      <Title> Readativity </Title>
-      <InfoContainer>
-        <Subtitle> What is Readativity?</Subtitle>
-        <Information>Readativity encourages you to make time </Information>
-        <Subtitle> Why do you need Readativity?</Subtitle>
-        <Information>Readativity encourages you to make time </Information>
-        <Subtitle> Our Team:</Subtitle>
-        <Information>Bj Collins, Carolyn Selheim, James Mann, and Kevin Kingdon</Information>
-        <Subtitle> Our Code:</Subtitle>
-        <Information><a href="https://github.com/Readativity/Frontend" target="_blank">View Our Code Here</a></Information>
-      </InfoContainer>
+    <div>
+      <div className="main">
+        <Title> Readativity </Title>
+        <InfoContainer>
+          <Subtitle> What is Readativity?</Subtitle>
+          <Information>Readativity encourages you to make time </Information>
+          <Subtitle> Why do you need Readativity?</Subtitle>
+          <Information>Readativity encourages you to make time </Information>
+          <Subtitle> Our Team:</Subtitle>
+          <Information>Bj Collins, Carolyn Selheim, James Mann, and Kevin Kingdon</Information>
+          <Subtitle> Our Code:</Subtitle>
+          <Information><a href="https://github.com/Readativity/Frontend" target="_blank">View Our Code Here</a></Information>
+        </InfoContainer>
+      </div>
     </div>
   );
 };
@@ -33,7 +35,6 @@ const AboutDiv = styled.div`
 
 const Title = styled.h1`
   font-size: 3rem;
-  margin-top: 1rem;
 `;
 const InfoContainer = styled.div`
   display: flex;

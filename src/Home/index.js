@@ -3,18 +3,21 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import Login from "../login";
 
+
 const Splash = (props) => (
-  <main id="splash-image"className= "main">
-    <Button id="login-button" className="splash-button" onClick={props.openModal}>
-        <p>Login</p>
-    </Button>
-    <Button id="new-user-button" className="splash-button">
-      <StyleLink to="/createaccount">
-        Create an Account
-      </StyleLink>
-    </Button>
-    <Login warning={props.warning} userInfo={props.userInfo} loginView={props.loginView} handleLogin={props.handleLogin} openModal={props.openModal} closeModal={props.closeModal} modalIsOpen={props.modalIsOpen} />
-  </main>
+  <div>
+    <main id="splash-image"className= "main">
+      <Button id="login-button" className="splash-button" onClick={props.openModal}>
+          <p>Login</p>
+      </Button>
+      <Button id="new-user-button" className="splash-button">
+        <StyleLink to="/createaccount">
+          Create an Account
+        </StyleLink>
+      </Button>
+      <Login warning={props.warning} userInfo={props.userInfo} loginView={props.loginView} handleLogin={props.handleLogin} openModal={props.openModal} closeModal={props.closeModal} modalIsOpen={props.modalIsOpen} />
+    </main>
+  </div>
 );
 
 export default Splash;

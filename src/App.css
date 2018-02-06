@@ -41,6 +41,7 @@ input {
 #footer {
   height: 15vh;
   width: 100vw;
+  background-color: var(--blue);
 }
 
 .main{
