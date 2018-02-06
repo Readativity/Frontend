@@ -33,6 +33,15 @@ input {
   text-align: center;
 }
 
+#header {
+  height: 15vh;
+  width: 100vw;
+}
+#footer {
+  height: 15vh;
+  width: 100vw;
+}
+
 .main{
   height: 70vh;
   width: 100vw;
@@ -42,12 +51,13 @@ input {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+}
 
 .modal {
-  width: 40%;
+  width: 90%;
   height: 40%;
-  background-color: #d7f6f6;
+  background-color: white;
   border: solid gray 1px;
   border-radius: 2px;
 }
