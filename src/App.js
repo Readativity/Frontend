@@ -117,7 +117,7 @@ class App extends Component {
             <Route path="/about" component={About} />
             <Route path="/createaccount" component={() => <CreateAccount handleSignUp={this.handleSignUp} submitHandlerSignUp={this.submitHandlerSignUp} />} />
             <Route path="/dashboard" component={Dashboard} />
-            <Route path="/stats" component={Stats} />
+            <Route path="/stats" component={() => <Stats userInfo={this.state.userInfo} /> }/>
             <Route path="/reader" component={() => <Reader userInfo={this.state.userInfo} />} />
             <Footer />
           </div>
