@@ -8,6 +8,6 @@ function Iframe(props) {
 export default Iframe;
 
 const IframeElem = styled.iframe`
-  height: 100vh;
+  height:90%;
   width: 100vw;
 `;

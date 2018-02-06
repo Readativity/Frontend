@@ -28,9 +28,9 @@ class Login extends React.Component {
               <Header>Login</Header>
               <FormLogin onSubmit={this.props.handleLogin}>
                 <Labels htmlFor="username"> Username</Labels>
-                <Inputs name="username" placeholder="demouser" />
+                <Inputs type="text" name="username" placeholder="demouser" />
                 <Labels htmlFor="password"> Password</Labels>
-                <Inputs name="password" placeholder="1234"/>
+                <Inputs type="password" name="password" placeholder="1234"/>
                 <Submit type="submit" name="submit" defaultValue="Sign In" />
               </FormLogin>
               <Warning className={(this.props.warning ? ' ' : 'hidden')}>Username and password do not match records.</Warning>
