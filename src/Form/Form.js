@@ -21,16 +21,16 @@ function Form(props) {
       >
         <h2 className="form-title">Create Reader profile</h2>
         <label htmlFor="username">Username</label>
-        <input type="text" name="username" />
+        <input type="text" name="username" placeholder="Create a Username" />
 
         <label htmlFor="password">Password</label>
-        <input type="text" name="password" />
+        <input type="text" name="password" placeholder="Create a Password" />
 
         <label htmlFor="name">Name</label>
-        <input type="text" name="name" />
+        <input type="text" name="name" placeholder="Enter First and Last Name" />
 
         <label htmlFor="email">Email Address</label>
-        <input type="text" name="email" />
+        <input type="text" name="email" placeholder="Enter an Email address" />
 
         <h2>Choose 3 Interests</h2>
         <ArticleCatagories>
