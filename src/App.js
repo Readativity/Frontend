@@ -8,6 +8,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import CreateAccount from "./Form";
 import Dashboard from "./Dashboard";
+import Stats from "./Stats";
 
 class App extends Component {
   constructor(props) {
@@ -81,6 +82,7 @@ class App extends Component {
             <Route path="/about" component={About} />
             <Route path="/createaccount" component={CreateAccount} />
             <Route path="/dashboard" component={Dashboard} />
+            <Route path="/stats" component={Stats} />
             <Route path="/reader" component={() => <Reader userInfo={this.state.userInfo} />} />
             <Footer />
           </div>
