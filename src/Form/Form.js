@@ -21,10 +21,14 @@ function Form(props) {
       >
         <h2 className="form-title">Create Reader profile</h2>
         <label htmlFor="username">Username</label>
-        <input type="text" name="username" placeholder="Create a Username" />
+        <input type="text" name="username" placeholder="Create a Username" onChange={props.checkUserName} />
+        <UsernameWarning className={props.warningUsername ? "" : "hidden"} >*Username already exists*</UsernameWarning>
 
         <label htmlFor="password">Password</label>
         <input type="text" name="password" placeholder="Create a Password" />
+
+        <label htmlFor="confirmPassword">Confirm Password</label>
+        <input type="text" name="confirmPassword" placeholder="Confirm Password" />
 
         <label htmlFor="name">Name</label>
         <input type="text" name="name" placeholder="Enter First and Last Name" />
@@ -126,6 +130,11 @@ function Form(props) {
 }
 
 export default Form;
+
+const UsernameWarning = styled.span`
+  color: red;
+  font-size: 10px;
+`;
 
 const SubmitButton = styled.input`
   background: #fdd130;

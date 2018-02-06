@@ -19,12 +19,14 @@ class App extends Component {
       modalIsOpen: false,
       loginView: "form",
       warning: false,
+      warningUsername: false,
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.handleSignUp = this.handleSignUp.bind(this);
     this.submitHandlerSignUp = this.submitHandlerSignUp.bind(this);
+    this.checkUserName = this.checkUserName.bind(this);
   }
 
   componentDidMount() {
@@ -55,13 +57,24 @@ class App extends Component {
         this.setState({ userInfo: user });
         this.setState({ loginView: "link" });
       } else {
-        this.setState({warning:true})
+        this.setState({ warning: true });
+      }
+    });
+  }
+
+  checkUserName(event) {
+    this.state.users.forEach(user => {
+      if (user.username === event.target.value) {
+        this.setState({ warningUsername: true });
+        setTimeout(() => {
+          this.setState({ warningUsername: false });
+        }, 3000);
       }
     });
   }
 
   handleSignUp(event) {
-    const data = new FormData(document.getElementById("CreateAccount"));
+    const data = new FormData(event.target);
     const checkboxArray = document.querySelectorAll(".checkbox");
     const catagoriesArray = [];
     for (let i = 0; i < checkboxArray.length; i++) {
@@ -113,11 +126,11 @@ class App extends Component {
                   handleLogin={this.handleLogin}
                 />
               )}
-              />
+            />
             <Route path="/about" component={About} />
-            <Route path="/createaccount" component={() => <CreateAccount handleSignUp={this.handleSignUp} submitHandlerSignUp={this.submitHandlerSignUp} />} />
-            <Route path="/dashboard" component={() => <Dashboard userInfo={this.state.userInfo}/> }/>
-            <Route path="/stats" component={() => <Stats userInfo={this.state.userInfo} /> }/>
+            <Route path="/createaccount" component={() => <CreateAccount handleSignUp={this.handleSignUp} submitHandlerSignUp={this.submitHandlerSignUp} checkUserName={this.checkUserName} warningUsername={this.state.warningUsername} />} />
+            <Route path="/dashboard" component={() => <Dashboard userInfo={this.state.userInfo} />} />
+            <Route path="/stats" component={() => <Stats userInfo={this.state.userInfo} />} />
             <Route path="/reader" component={() => <Reader userInfo={this.state.userInfo} />} />
             <Footer />
           </div>
