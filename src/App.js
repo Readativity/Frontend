@@ -7,6 +7,8 @@ import Splash from "./Home";
 import Header from "./Header";
 import Footer from "./Footer";
 import CreateAccount from "./Form";
+import Dashboard from "./Dashboard";
+import Stats from "./Stats";
 
 class App extends Component {
   constructor(props) {
@@ -16,6 +18,7 @@ class App extends Component {
       userInfo: {},
       modalIsOpen: false,
       loginView: "form",
+      warning: false,
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -50,10 +53,11 @@ class App extends Component {
     this.state.users.forEach(user => {
       if (user.username === username && user.password === password) {
         this.setState({ userInfo: user });
+        this.setState({ loginView: "link" });
+      } else {
+        this.setState({warning:true})
       }
     });
-    this.setState({ loginView: "link" });
-    console.log(this.state);
   }
 
   handleSignUp(event) {
@@ -100,6 +104,8 @@ class App extends Component {
               path="/"
               component={() => (
                 <Splash
+                  warning={this.state.warning}
+                  userInfo={this.state.userInfo}
                   loginView={this.state.loginView}
                   openModal={this.openModal}
                   closeModal={this.closeModal}
@@ -107,9 +113,11 @@ class App extends Component {
                   handleLogin={this.handleLogin}
                 />
               )}
-            />
+              />
             <Route path="/about" component={About} />
             <Route path="/createaccount" component={() => <CreateAccount handleSignUp={this.handleSignUp} submitHandlerSignUp={this.submitHandlerSignUp} />} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/stats" component={Stats} />
             <Route path="/reader" component={() => <Reader userInfo={this.state.userInfo} />} />
             <Footer />
           </div>
