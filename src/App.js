@@ -74,16 +74,8 @@ class App extends Component {
               )}
             />
             <Route path="/about" component={About} />
-<<<<<<< HEAD
-            <Route path="/signup" component={CreateAccount} />
+            <Route path="/createaccount" component={CreateAccount} />
             <Route path="/reader" component={() => <Reader userInfo={this.state.userInfo} />} />
-=======
-            <Route path="/get-started" />
-            <Route
-              path="/reader"
-              component={() => <Reader userInfo={this.state.userInfo} />}
-            />
->>>>>>> 5763cbe1ef0189d68112e907abf23e5ac1d37283
             <Footer />
           </div>
         </Router>
