@@ -36,6 +36,7 @@ input {
 #header {
   height: 15vh;
   width: 100vw;
+  margin: 0rem;
 }
 #footer {
   height: 15vh;
@@ -43,8 +44,20 @@ input {
 }
 
 .main{
+  margin: 0rem;
   height: 70vh;
   width: 100vw;
+}
+
+#splash-image {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./Home/splash.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .ReactModal__Overlay {
