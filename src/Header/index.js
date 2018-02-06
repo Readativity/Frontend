@@ -6,7 +6,7 @@ import logo from "./logo.png";
 class Header extends React.Component {
   render() {
     return (
-      <HeaderLogo>
+      <HeaderLogo id="header">
         <Logo src={logo} alt="logo" />
       </HeaderLogo>
     );

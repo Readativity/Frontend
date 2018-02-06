@@ -1,15 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-class NextButton extends React.Component {
+class StatsReturn extends React.Component {
   render() {
     return (
-      <StyledButton>New Article </StyledButton>
+      <div id="stats-dash-return">
+        <StyledButton>Return to Main Dashboard</StyledButton>
+      </div>
     );
   }
 }
 
-export default NextButton;
+export default StatsReturn;
 
 const StyledButton = styled.button`
   background: #fdd130;
@@ -19,7 +21,6 @@ const StyledButton = styled.button`
   font-family: Arial;
   color: #3c3c3c;
   font-size: 20px;
-  width: 50%;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
 `;

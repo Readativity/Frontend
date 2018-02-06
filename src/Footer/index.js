@@ -6,7 +6,7 @@ import styled from "styled-components";
 class Footer extends React.Component {
   render() {
     return (
-      <FooterNav>
+      <FooterNav id="footer">
         <Link to="/">
           <StyledLink className="footer-nav">Home | </StyledLink>
         </Link>
