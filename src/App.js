@@ -6,6 +6,7 @@ import Reader from "./Reader";
 import Splash from "./Home";
 import Header from "./Header";
 import Footer from "./Footer";
+import CreateAccount from "./Form"
 
 class App extends Component {
   constructor(props) {
@@ -73,11 +74,8 @@ class App extends Component {
               )}
             />
             <Route path="/about" component={About} />
-            <Route path="/get-started" />
-            <Route
-              path="/reader"
-              component={() => <Reader userInfo={this.state.userInfo} />}
-            />
+            <Route path="/createaccount" component={CreateAccount} />
+            <Route path="/reader" component={() => <Reader userInfo={this.state.userInfo} />} />
             <Footer />
           </div>
         </Router>

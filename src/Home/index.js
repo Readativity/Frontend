@@ -6,14 +6,14 @@ import Login from "../login";
 
 const Splash = (props) => (
   <main className= "main">
-    <Link to="">
-      <Button id="login-button" className="splash-button" onClick={props.openModal}>
-        Login
+    <Button id="login-button" className="splash-button" onClick={props.openModal}>
+      Login
+    </Button>
+    <Link to="/createaccount">
+      <Button id="new-user-button" className="splash-button">
+        Create an Account
       </Button>
     </Link>
-    <Button id="new-user-button" className="splash-button">
-      Create an Account
-    </Button>
     <Login loginView={props.loginView} handleLogin={props.handleLogin} openModal={props.openModal} closeModal={props.closeModal} modalIsOpen={props.modalIsOpen} />
   </main>
 );
