@@ -10,7 +10,7 @@ const Dashboard = (props) => (
         Start Reading
       </Button>
     </Link>
-    <Link to="">
+    <Link to="/stats">
       <Button id="stats-dashboard" className="dashboard-button">
         See Stats
       </Button>
