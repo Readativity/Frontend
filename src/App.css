@@ -66,6 +66,18 @@ input {
   background-size: cover;
 }
 
+#dashboard {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#reader {
+  height: 70vh;
+  width: 100vw;
+}
+
 .ReactModal__Overlay {
   display: flex;
   flex-direction: column;

@@ -51,7 +51,80 @@ class Reader extends React.Component {
         });
       })
       .then(() => {
-        var date = new Date();
+        const date = new Date();
+        const monthNum = date.getMonth();
+        const dayNum = date.getDay();
+        const dateNum = date.getDate();
+        const yearNum = date.getFullYear();
+        let monthWord;
+        let dayWord;
+        switch (monthNum) {
+          case 0:
+            monthWord = "January";
+            break;
+          case 1:
+            monthWord = "February";
+            break;
+          case 2:
+            monthWord = "March";
+            break;
+          case 3:
+            monthWord = "April";
+            break;
+          case 4:
+            monthWord = "May";
+            break;
+          case 5:
+            monthWord = "June";
+            break;
+          case 6:
+            monthWord = "July";
+            break;
+          case 7:
+            monthWord = "August";
+            break;
+          case 8:
+            monthWord = "September";
+            break;
+          case 9:
+            monthWord = "October";
+            break;
+          case 10:
+            monthWord = "November";
+            break;
+          case 11:
+            monthWord = "December";
+            break;
+          default:
+            break;
+        }
+
+        switch (dayNum) {
+          case 0:
+            dayWord = "Sunday";
+            break;
+          case 1:
+            dayWord = "Monday";
+            break;
+          case 2:
+            dayWord = "Tuesday";
+            break;
+          case 3:
+            dayWord = "Wednesday";
+            break;
+          case 4:
+            dayWord = "Thursday";
+            break;
+          case 5:
+            dayWord = "Friday";
+            break;
+          case 6:
+            dayWord = "Saturday";
+            break;
+          default:
+            break;
+        }
+        const today = dateNum + " " + dayWord + " " + monthWord + " " + yearNum;
         fetch("https://readativity.herokuapp.com/activity", {
           method: "post",
           body: JSON.stringify({
@@ -60,7 +133,7 @@ class Reader extends React.Component {
             headline: articleInfo.title,
             image: articleInfo.urlToImage,
             timeReading: 0,
-            date: date.toDateString(),
+            date: today,
             _userId: this.props.userInfo.id
           }),
           headers: new Headers({
@@ -95,7 +168,7 @@ class Reader extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="reader">
         <Iframe url={this.state.url} />
         <NextButton />
       </div>
