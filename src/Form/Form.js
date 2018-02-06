@@ -1,10 +1,24 @@
 import React from "react";
 import styled from "styled-components";
+import World from "./icons/world-icon.png";
+import Tech from "./icons/tech-icon.png";
+import Health from "./icons/health-icon.png";
+import Politics from "./icons/politics-icon.png";
+import Science from "./icons/science-icon.png";
+import Sports from "./icons/sports-icon.png";
+import Business from "./icons/business-icon.png";
+import Food from "./icons/food-icon.png";
+import PopCulture from "./icons/pop-culture-icon.png";
 
 function Form(props) {
   return (
     <div>
-      <UserForm id="CreateAccount" onSubmit={event => { props.submitHandlerSignUp(event); }} >
+      <UserForm
+        id="CreateAccount"
+        onSubmit={event => {
+          props.submitHandlerSignUp(event);
+        }}
+      >
         <h2 className="form-title">Create Reader profile</h2>
         <label htmlFor="username">Username</label>
         <input type="text" name="username" />
@@ -20,63 +34,92 @@ function Form(props) {
 
         <h2>Choose 3 Interests</h2>
         <ArticleCatagories>
-          <label htmlFor="world" >
+          <label htmlFor="world">
             <input className="checkbox" type="checkbox" name="world" value="world" id="world" />
-            <img src="http://funwithbonus.com/wp-content/uploads/npr_news_icon.png" alt="some img" />
+            <img src={World} alt="some img" />
             <h3>WORLD</h3>
           </label>
 
-          <label htmlFor="Technology" >
-            <input className="checkbox" type="checkbox" name="Technology" value="technology" id="Technology" />
-            <img src="http://thumbs.microstock.in/unsafe/http://microstock-in.s3.amazonaws.com/catalog/product/thumbnail/2/BUSINESS-AND-FINANCE/Business_10068862_thumbnail.jpg" alt="some img" />
+          <label htmlFor="Technology">
+            <input
+              className="checkbox"
+              type="checkbox"
+              name="Technology"
+              value="technology"
+              id="Technology"
+            />
+            <img src={Tech} alt="some img" />
             <h3>TECH</h3>
           </label>
 
-          <label htmlFor="Health" >
+          <label htmlFor="Health">
             <input className="checkbox" type="checkbox" name="Health" value="health" id="Health" />
-            <img src="https://cdn.kastatic.org/genfiles/topic-icons/icons/health.png-0b07ae-128c.png" alt="some img" />
+            <img src={Health} alt="some img" />
             <h3>HEALTH</h3>
           </label>
 
-          <label htmlFor="Pop-culture" >
-            <input className="checkbox" type="checkbox" name="Pop-culture" value="pop-culture" id="Pop-culture" />
-            <img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/yellow-road-sign-icons-sports-hobbies/048802-yellow-road-sign-icon-sports-hobbies-masks-sc37.png" alt="some img" />
+          <label htmlFor="Pop-culture">
+            <input
+              className="checkbox"
+              type="checkbox"
+              name="Pop-culture"
+              value="pop-culture"
+              id="Pop-culture"
+            />
+            <img src={PopCulture} alt="some img" />
             <h3>POP CULTURE</h3>
           </label>
 
-          <label htmlFor="Business" >
-            <input className="checkbox" type="checkbox" name="Business" value="business" id="Business" />
-            <img src="https://i.pinimg.com/736x/42/96/22/429622a0f8d1f1e45d6d0d59d25d5c14--job-posting-job-search.jpg" alt="some img" />
+          <label htmlFor="Business">
+            <input
+              className="checkbox"
+              type="checkbox"
+              name="Business"
+              value="business"
+              id="Business"
+            />
+            <img src={Business} alt="some img" />
             <h3>BUSINESS</h3>
           </label>
 
-          <label htmlFor="Sports" >
+          <label htmlFor="Sports">
             <input className="checkbox" type="checkbox" name="Sports" value="sports" id="Sports" />
-            <img src="http://www.root6technology.com/wp-content/uploads/2014/08/BBC_Sport.jpg" alt="some img" />
+            <img src={Sports} alt="some img" />
             <h3>SPORTS</h3>
           </label>
 
-          <label htmlFor="Science" >
-            <input className="checkbox" type="checkbox" name="Science" value="science" id="Science" />
-            <img src="https://pi.tedcdn.com/r/pf.tedcdn.com/images/playlists/how_were_fighting_cancer_1107183452.jpg?quality=89&w=256" alt="some img" />
+          <label htmlFor="Science">
+            <input
+              className="checkbox"
+              type="checkbox"
+              name="Science"
+              value="science"
+              id="Science"
+            />
+            <img src={Science} alt="some img" />
             <h3>SCIENCE</h3>
           </label>
 
-          <label htmlFor="Food" >
+          <label htmlFor="Food">
             <input className="checkbox" type="checkbox" name="Food" value="food" id="Food" />
-            <img src="https://image.freepik.com/free-vector/food-background-design_1322-10.jpg" alt="some img" />
+            <img src={Food} alt="some img" />
             <h3>FOOD</h3>
           </label>
 
-          <label htmlFor="Politics" >
-            <input className="checkbox" type="checkbox" name="Politics" value="politics" id="Politics" />
-            <img src="http://www.caribbeanelections.com/images/sections/politcs.jpg" alt="some img" />
+          <label htmlFor="Politics">
+            <input
+              className="checkbox"
+              type="checkbox"
+              name="Politics"
+              value="politics"
+              id="Politics"
+            />
+            <img src={Politics} alt="some img" />
             <h3>POLITICS</h3>
           </label>
-
         </ArticleCatagories>
 
-        <input type="submit" name="submit" value="Submit" />
+        <SubmitButton type="submit" name="submit" value="Submit" />
       </UserForm>
     </div>
   );
@@ -84,8 +127,20 @@ function Form(props) {
 
 export default Form;
 
+const SubmitButton = styled.input`
+  background: #fdd130;
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #3c3c3c;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+`;
+
 const UserForm = styled.form`
-display: flex;
+  display: flex;
   flex-flow: column;
   padding: 1rem;
   padding-top: 0rem;
@@ -97,44 +152,40 @@ const ArticleCatagories = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
- img {
+  img {
     width: 100%;
     border-radius: 15%;
   }
 
-
-  input[type=checkbox] {
+  input[type="checkbox"] {
     position: absolute;
+  }
 
-
- }
-
- /* Default State */
- div {
+  /* Default State */
+  div {
     background: green;
     width: 400px;
     height: 100px;
     line-height: 100px;
     color: white;
     text-align: center;
- }
+  }
 
- /* Toggled State */
- input[type=checkbox]:checked ~ div {
+  /* Toggled State */
+  input[type="checkbox"]:checked ~ div {
     background: red;
- }
-label {
-  position: relative;
+  }
+  label {
+    position: relative;
     text-align: center;
     h3 {
-     position: absolute;
-     border-radius: 10%;
-     top: 27%;
-     left: 50%;
-     transform: translate(-50%, -50%);
-     background-color: rgba(201, 201, 201, 0.7);
-     padding: .5rem;
+      position: absolute;
+      border-radius: 10%;
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(201, 201, 201, 0.7);
+      padding: 0.5rem;
     }
-
-}
+  }
 `;
