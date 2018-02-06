@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Iframe from "./Iframe";
 import NextButton from "./NextButton";
+import Timer from "easytimer.js";
 
 class Reader extends React.Component {
   constructor(props) {
@@ -11,7 +12,6 @@ class Reader extends React.Component {
     };
   }
   componentDidMount() {
-    console.log("props", this.props.userInfo);
     const baseUrl = "https://newsapi.org/v2/everything?language=en";
     const domains = [
       "techcrunch.com",
@@ -34,21 +34,61 @@ class Reader extends React.Component {
       this.props.userInfo.thirdInterest
     ];
     const randomNum = Math.floor(Math.random() * interests.length);
-    const interestsQuery = "&q=" + interests[randomNum];
+    const randomInterest = interests[randomNum];
+    const interestsQuery = "&q=" + randomInterest;
     const apiKey = "&apiKey=04ea00ecc2ae4e56bb5d0164256ea069";
     const url = baseUrl + domainsQuery + interestsQuery + apiKey;
-    console.log(url);
+    var articleInfo;
     fetch(url)
       .then(response => response.json())
       .then(response => {
-        console.log(response);
         const randomArticle = Math.floor(
           Math.random() * response.articles.length
         );
+        articleInfo = response.articles[randomArticle];
         this.setState({
-          url: response.articles[randomArticle].url
+          url: articleInfo.url
         });
-        console.log("this.state.article", this.state.article);
+      })
+      .then(() => {
+        var date = new Date();
+        fetch("https://readativity.herokuapp.com/activity", {
+          method: "post",
+          body: JSON.stringify({
+            interest: randomInterest,
+            articleURL: articleInfo.url,
+            headline: articleInfo.title,
+            image: articleInfo.urlToImage,
+            timeReading: 0,
+            date: date.toDateString(),
+            _userId: this.props.userInfo.id
+          }),
+          headers: new Headers({
+            "Content-Type": "application/json"
+          })
+        })
+          .then(response => response.json())
+          .then(response => {
+            var timer = new Timer();
+            timer.start();
+            timer.addEventListener("minutesUpdated", event => {
+              var time = timer.getTotalTimeValues().minutes;
+              fetch(
+                `https://readativity.herokuapp.com/activity/
+                  ${response.activity.id}`,
+                {
+                  method: "put",
+                  body: JSON.stringify({
+                    timeReading: time
+                  }),
+                  headers: new Headers({
+                    "Content-Type": "application/json"
+                  })
+                }
+              ).catch(console.error);
+            });
+          })
+          .catch(console.error);
       })
       .catch(err => console.log(err));
   }

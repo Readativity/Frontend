@@ -20,8 +20,8 @@ function Form(props) {
 
         <h2>Choose 3 Interests</h2>
         <ArticleCatagories>
-          <label htmlFor="general" >
-            <input className="checkbox" type="checkbox" name="general" value="general" id="general" />
+          <label htmlFor="world" >
+            <input className="checkbox" type="checkbox" name="world" value="world" id="world" />
             <img src="http://funwithbonus.com/wp-content/uploads/npr_news_icon.png" alt="some img" />
             <h3>WORLD</h3>
           </label>

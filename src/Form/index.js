@@ -3,7 +3,7 @@ import Form from "./Form";
 
 function CreateAccount(props) {
   return (
-    <main className="main">
+    <main className="createAccountMain">
       <Form handleSignUp={props.handleSignUp} submitHandlerSignUp={props.submitHandlerSignUp} />
     </main>
   );
