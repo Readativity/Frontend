@@ -1,37 +1,43 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import "../App.css";
 import styled from "styled-components";
 import Login from "../login";
 
 const Splash = (props) => (
-  <main className= "main">
-    <Link to="">
-      <Button id="login-button" className="splash-button" onClick={props.openModal}>
-        Login
-      </Button>
-    </Link>
-    <Button id="new-user-button" className="splash-button">
-      Create an Account
+  <main id="splash-image"className= "main">
+    <Button id="login-button" className="splash-button" onClick={props.openModal}>
+        <p>Login</p>
     </Button>
-    <Login loginView={props.loginView} handleLogin={props.handleLogin} openModal={props.openModal} closeModal={props.closeModal} modalIsOpen={props.modalIsOpen} />
+    <Button id="new-user-button" className="splash-button">
+      <StyleLink to="/createaccount">
+        Create an Account
+      </StyleLink>
+    </Button>
+    <Login warning={props.warning} userInfo={props.userInfo} loginView={props.loginView} handleLogin={props.handleLogin} openModal={props.openModal} closeModal={props.closeModal} modalIsOpen={props.modalIsOpen} />
   </main>
 );
 
 export default Splash;
 
+
 const Button = styled.div`
   background-color: white;
   border: 3px solid var(--blue);
   border-radius: 8px;
-  color: var(--blue);
-  font-size: 1.4em;
+  width: 70%;
+  height: 4rem;
+  margin: 1rem;
+  font-size: 1.8em;
   font-weight: bold;
-<<<<<<< HEAD
-  margin: 3rem 2rem;
-=======
-  margin: 2rem 2rem;
->>>>>>> f9f0978db351ec13bb777ee8fdea7e508db4deb3
-  padding: 1rem;
-  text-decoration: none;
+  vertically-align: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--blue);
 `;
+
+const StyleLink = styled(Link) `
+  text-decoration: none;
+  color: var(--blue);
+`

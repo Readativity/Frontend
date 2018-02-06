@@ -33,21 +33,44 @@ input {
   text-align: center;
 }
 
+#header {
+  height: 15vh;
+  width: 100vw;
+  margin: 0rem;
+}
+#footer {
+  height: 15vh;
+  width: 100vw;
+}
+
 .main{
+  margin: 0rem;
   height: 70vh;
   width: 100vw;
+}
+
+#splash-image {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./Home/splash.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .ReactModal__Overlay {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+}
 
 .modal {
-  width: 40%;
+  width: 90%;
   height: 40%;
-  background-color: #d7f6f6;
+  background-color: white;
   border: solid gray 1px;
   border-radius: 2px;
 }
