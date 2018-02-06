@@ -23,6 +23,8 @@ class App extends Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleSignUp = this.handleSignUp.bind(this);
+    this.submitHandlerSignUp = this.submitHandlerSignUp.bind(this);
   }
 
   componentDidMount() {
@@ -58,6 +60,39 @@ class App extends Component {
     });
   }
 
+  handleSignUp(event) {
+    const data = new FormData(document.getElementById("CreateAccount"));
+    const checkboxArray = document.querySelectorAll(".checkbox");
+    const catagoriesArray = [];
+    for (let i = 0; i < checkboxArray.length; i++) {
+      if (checkboxArray[i].checked) {
+        catagoriesArray.push(checkboxArray[i].value);
+      }
+    }
+    const form = {
+      username: data.get("username"),
+      password: data.get("password"),
+      name: data.get("name"),
+      email: data.get("email"),
+      firstInterest: catagoriesArray[0],
+      secondInterest: catagoriesArray[1],
+      thirdInterest: catagoriesArray[2],
+    };
+    event.target.reset();
+    console.log(form);
+    return form;
+  }
+
+  submitHandlerSignUp(event) {
+    event.preventDefault();
+    fetch("https://readativity.herokuapp.com/users", {
+      method: "POST",
+      body: JSON.stringify(this.handleSignUp(event)),
+      headers: new Headers({ "Content-Type": "application/json" }),
+    })
+      .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div className="App">
@@ -80,7 +115,7 @@ class App extends Component {
               )}
               />
             <Route path="/about" component={About} />
-            <Route path="/createaccount" component={CreateAccount} />
+            <Route path="/createaccount" component={() => <CreateAccount handleSignUp={this.handleSignUp} submitHandlerSignUp={this.submitHandlerSignUp} />} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/stats" component={Stats} />
             <Route path="/reader" component={() => <Reader userInfo={this.state.userInfo} />} />

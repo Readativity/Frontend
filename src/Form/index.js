@@ -1,15 +1,12 @@
 import React from "react";
-import styled from "styled-components";
 import Form from "./Form";
 
-class CreateAccount extends React.Component {
-  render() {
-    return (
-      <div>
-        <Form />
-      </div>
-    );
-  }
+function CreateAccount(props) {
+  return (
+    <main className="main">
+      <Form handleSignUp={props.handleSignUp} submitHandlerSignUp={props.submitHandlerSignUp} />
+    </main>
+  );
 }
 
 export default CreateAccount;
