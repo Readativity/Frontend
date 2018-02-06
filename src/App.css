@@ -49,6 +49,12 @@ input {
   width: 100vw;
 }
 
+.createAccountMain{
+  margin: 0rem;
+  height: 120vh;
+  width: 100vw;
+}
+
 #splash-image {
   display: flex;
   flex-flow: column;
