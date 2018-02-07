@@ -29,7 +29,7 @@ export default class StatsDashboard extends React.Component {
     return (
       <main className="main">
         <DailyReading data={this.state.activity} />
-        <CategoryReading data={this.state.activity} />
+        <CategoryReading userInfo={this.props.userInfo} data={this.state.activity} />
       </main>
     );
   }

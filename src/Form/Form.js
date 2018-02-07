@@ -158,6 +158,7 @@ class Form extends React.Component {
 
           <SubmitButton type="submit" name="submit" value="Submit" />
         </UserForm>
+        <p className={this.props.confirmUser ? " ": "hidden"}> Thank you for creating an account. Return to Home to Login.</p>
       </div>
     );
   }
