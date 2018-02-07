@@ -1,6 +1,8 @@
 import React from "react";
 import DailyReading from "./daily-reading.js";
 import CategoryReading from "./reading-categories.js";
+import {Link } from "react-router-dom";
+import styled from "styled-components";
 
 export default class StatsDashboard extends React.Component {
   constructor(props) {
@@ -30,7 +32,31 @@ export default class StatsDashboard extends React.Component {
       <main className="main">
         <DailyReading data={this.state.activity} />
         <CategoryReading userInfo={this.props.userInfo} data={this.state.activity} />
+        <Container>
+          <StyledLink to="/history"> Article History </StyledLink>
+        </Container>
       </main>
     );
   }
 }
+
+const Container= styled.div `
+  margin-top: .5rem;
+  width: 100vw;
+  height: 15%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const StyledLink = styled(Link) `
+  background: #fdd130;
+  font-family: Arial;
+  color: #3c3c3c;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: 30%;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+`;

@@ -79,6 +79,25 @@ input {
   width: 100vw;
 }
 
+#history {
+  margin: 0rem;
+  height: 70vh;
+  width: 100vw;
+  overflow: scroll;
+  width: 100%;
+}
+
+#history-object {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 100%;
+  width: 100%;
+  height: 4rem;
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
+  margin-top: .5rem;
+}
+
 .ReactModal__Overlay {
   display: flex;
   flex-direction: column;
