@@ -1,12 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const EditLogout =(props)=> {
 
   return (
     <Container>
-      <StyledLink>Logout</StyledLink>
+      <StyledLink2 to="/" onClick={(event)=> {props.logout(event)}}>Logout</StyledLink2>
       <StyledLink>Edit Settings</StyledLink>
     </Container>
   )
@@ -29,4 +29,11 @@ const StyledLink = styled.h1 `
   font-size: 1.5rem;
   color: var(--blue);
   font-family: var(--open-sans);
+`
+
+const StyledLink2 = styled(Link) `
+  font-size: 1.5rem;
+  color: var(--blue);
+  font-family: var(--open-sans);
+  text-decoration: none;
 `

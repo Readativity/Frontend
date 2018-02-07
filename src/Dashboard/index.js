@@ -17,7 +17,7 @@ const Dashboard = (props) => (
         See Stats
       </div>
     </StyleLink>
-    <EditLogout />
+    <EditLogout logout={props.logout}/>
   </main>
 );
 

@@ -27,6 +27,7 @@ class App extends Component {
     this.handleSignUp = this.handleSignUp.bind(this);
     this.submitHandlerSignUp = this.submitHandlerSignUp.bind(this);
     this.checkUserName = this.checkUserName.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   componentDidMount() {
@@ -108,6 +109,11 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  logout() {
+    this.setState({userInfo: {}});
+    this.closeModal();
+  }
+
   render() {
     return (
       <div className="App">
@@ -131,7 +137,7 @@ class App extends Component {
             />
             <Route path="/about" component={About} />
             <Route path="/createaccount" component={() => <CreateAccount handleSignUp={this.handleSignUp} submitHandlerSignUp={this.submitHandlerSignUp} checkUserName={this.checkUserName} warningUsername={this.state.warningUsername} />} />
-            <Route path="/dashboard" component={() => <Dashboard userInfo={this.state.userInfo} />} />
+            <Route path="/dashboard" component={() => <Dashboard userInfo={this.state.userInfo} logout={this.logout}/>} />
             <Route path="/stats" component={() => <Stats userInfo={this.state.userInfo} />} />
             <Route path="/reader" component={() => <Reader userInfo={this.state.userInfo} />} />
             <Footer userInfo={this.state.userInfo} />

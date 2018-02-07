@@ -8,10 +8,11 @@ class Login extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    Modal.setAppElement(".App")
+  }
+
   render() {
-
-    // let userName= this.props.userInfo.name;
-
 
     return (
       <Modal
