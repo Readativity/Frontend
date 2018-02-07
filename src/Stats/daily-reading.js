@@ -4,11 +4,44 @@ import { Line } from "react-chartjs-2";
 export default class DailyReading extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      data: []
+    };
+    this.dayNames = this.dayNames.bind(this);
+  }
+
+  componentDidMount() {
+    var data = this.props.data;
+    var week = {};
+    for (var i = 0; i < 7; i++) {
+      var key = new Date(new Date().setDate(new Date().getDate() - i)).toString().split(" ");
+      key.pop();
+      key.pop();
+      key.pop();
+      var finalKey = key.join(" ");
+      week[finalKey] = 0;
+    }
+    for (let i = 0; i < data.length; i++) {
+      if (week[data[i].date] !== null) {
+        week[data[i].date] += data[i].timeReading;
+      }
+    }
+    this.setState({
+      dates: Object.keys(week),
+      times: Object.values(week)
+    });
+  }
+
+  dayNames(array) {
+    return array.map(day => {
+      var newDay = day.split(" ")[0];
+      return newDay;
+    });
   }
 
   render() {
     const chartData = {
-      labels: ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"],
+      labels: dayNames(this.state.dates),
       datasets: [
         {
           label: "My First dataset",
@@ -29,7 +62,7 @@ export default class DailyReading extends React.Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [15, 9, 8, 11, 25, 6, 17]
+          data: this.state.times
         }
       ]
     };

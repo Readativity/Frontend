@@ -1,7 +1,7 @@
 import React from "react";
 import DailyReading from "./daily-reading.js";
 import CategoryReading from "./reading-categories.js";
-import StatsReturn from "./return.js";
+
 
 export default class StatsDashboard extends React.Component {
   constructor(props) {
@@ -12,7 +12,8 @@ export default class StatsDashboard extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://readativity.herokuapp.com/activity")
+    let userId = this.props.userInfo.id;
+    fetch("https://readativity.herokuapp.com/activity/" + userId)
       .then(response => response.json())
       .then(response => console.log(response.activity))
       .then(response => {
@@ -28,7 +29,6 @@ export default class StatsDashboard extends React.Component {
       <main className="main">
         <DailyReading data={this.state.activity} />
         <CategoryReading data={this.state.activity} />
-        <StatsReturn />
       </main>
     );
   }

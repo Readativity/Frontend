@@ -27,6 +27,7 @@ class App extends Component {
     this.handleSignUp = this.handleSignUp.bind(this);
     this.submitHandlerSignUp = this.submitHandlerSignUp.bind(this);
     this.checkUserName = this.checkUserName.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   componentDidMount() {
@@ -105,6 +106,11 @@ class App extends Component {
     }).catch(err => console.log(err));
   }
 
+  logout() {
+    this.setState({ userInfo: {} });
+    this.closeModal();
+  }
+
   render() {
     return (
       <div className="App">
@@ -140,7 +146,12 @@ class App extends Component {
             />
             <Route
               path="/dashboard"
-              component={() => <Dashboard userInfo={this.state.userInfo} />}
+              component={() => (
+                <Dashboard
+                  userInfo={this.state.userInfo}
+                  logout={this.logout}
+                />
+              )}
             />
             <Route
               path="/stats"
