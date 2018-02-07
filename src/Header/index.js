@@ -1,15 +1,23 @@
 import React from "react";
-import "../App.css";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import logo from "./logo.png";
 
 class Header extends React.Component {
   render() {
-    return (
-      <HeaderLogo id="header">
-        <Logo src={logo} alt="logo" />
-      </HeaderLogo>
-    );
+    if(this.props.userInfo.id === undefined) {
+      return (
+        <HeaderLogo id="header">
+          <Link to="/"><Logo src={logo} alt="logo" /></Link>
+        </HeaderLogo>
+      );
+    } else {
+      return (
+        <HeaderLogo id="header">
+          <Link to="/dashboard"><Logo src={logo} alt="logo" /></Link>
+        </HeaderLogo>
+      );
+    }
   }
 }
 

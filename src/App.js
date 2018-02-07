@@ -123,9 +123,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
+
         <Router>
           <div>
+            <Header userInfo={this.state.userInfo}/>
             <Route
               exact
               path="/"
