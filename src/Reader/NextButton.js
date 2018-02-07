@@ -1,12 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-class NextButton extends React.Component {
-  render() {
-    return (
-      <StyledButton>New Article </StyledButton>
-    );
-  }
+function NextButton(props) {
+  return <StyledButton onClick={props.nextArticle}>New Article</StyledButton>;
 }
 
 export default NextButton;
