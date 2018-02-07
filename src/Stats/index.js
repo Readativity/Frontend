@@ -2,7 +2,6 @@ import React from "react";
 import DailyReading from "./daily-reading.js";
 import CategoryReading from "./reading-categories.js";
 
-
 export default class StatsDashboard extends React.Component {
   constructor(props) {
     super(props);
@@ -13,12 +12,14 @@ export default class StatsDashboard extends React.Component {
 
   componentDidMount() {
     let userId = this.props.userInfo.id;
+    console.log("userID", userId);
     fetch("https://readativity.herokuapp.com/activity/" + userId)
       .then(response => response.json())
-      .then(response => console.log(response.activity))
       .then(response => {
+        var activityData = response.activity;
+        console.log(response.activity);
         this.setState({
-          activity: response.activity
+          activity: activityData
         });
       })
       .catch(error => console.log(error));
