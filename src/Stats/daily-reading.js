@@ -5,13 +5,13 @@ export default class DailyReading extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      dates: [],
+      times: []
     };
     this.dayNames = this.dayNames.bind(this);
   }
 
   componentDidMount() {
-    var data = this.props.data;
     var week = {};
     for (var i = 0; i < 7; i++) {
       var key = new Date(new Date().setDate(new Date().getDate() - i)).toString().split(" ");
@@ -21,12 +21,11 @@ export default class DailyReading extends React.Component {
       var finalKey = key.join(" ");
       week[finalKey] = 0;
     }
-    for (let i = 0; i < data.length; i++) {
-      if (week[data[i].date] !== null) {
-        week[data[i].date] += data[i].timeReading;
-      }
-    }
+    this.props.data.forEach(activity => {
+      week[activity.date] += activity.timeReading;
+    });
     this.setState({
+      week: week,
       dates: Object.keys(week),
       times: Object.values(week)
     });
@@ -41,7 +40,7 @@ export default class DailyReading extends React.Component {
 
   render() {
     const chartData = {
-      labels: dayNames(this.state.dates),
+      labels: this.dayNames(this.state.dates),
       datasets: [
         {
           label: "My First dataset",
