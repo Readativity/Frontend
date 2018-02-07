@@ -52,8 +52,12 @@ input {
 
 .createAccountMain{
   margin: 0rem;
-  height: 120vh;
+  height: 95vh;
   width: 100vw;
+}
+
+.checkedItem {
+  opacity: .9;
 }
 
 #splash-image {
