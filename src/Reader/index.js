@@ -8,7 +8,8 @@ class Reader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: ""
+      url: "",
+      articleInfo: ""
     };
     this.nextArticle = this.nextArticle.bind(this);
   }
@@ -35,32 +36,33 @@ class Reader extends React.Component {
       "today.com"
     ];
     var domainsQuery = "&domains=";
-    for (let i = 0; i < domains.length; i++) {
-      domainsQuery += domains[i];
-      if (i !== domains.length - 1) {
+    domains.forEach((domain, index) => {
+      domainsQuery += domain;
+      if (index !== domains.length - 1) {
         domainsQuery += ",";
       }
-    }
+    });
     const interests = [
       this.props.userInfo.firstInterest,
       this.props.userInfo.secondInterest,
       this.props.userInfo.thirdInterest
     ];
-    const randomNum = Math.floor(Math.random() * interests.length);
-    const randomInterest = interests[randomNum];
+    const randomInterest =
+      interests[Math.floor(Math.random() * interests.length)];
     const interestsQuery = "&q=" + randomInterest;
     const apiKey = "&apiKey=04ea00ecc2ae4e56bb5d0164256ea069";
     const url = baseUrl + domainsQuery + interestsQuery + apiKey;
-    var articleInfo;
     fetch(url)
       .then(response => response.json())
       .then(response => {
-        const randomArticle = Math.floor(
-          Math.random() * response.articles.length
-        );
-        articleInfo = response.articles[randomArticle];
         this.setState({
-          url: articleInfo.url
+          articleInfo:
+            response.articles[
+              Math.floor(Math.random() * response.articles.length)
+            ]
+        });
+        this.setState({
+          url: this.state.articleInfo.url
         });
       })
       .then(() => {
@@ -71,7 +73,6 @@ class Reader extends React.Component {
         if (dateNum < 10) {
           dateNum = `0${dateNum}`;
         }
-        console.log(dateNum);
         const yearNum = date.getFullYear();
         let monthWord;
         let dayWord;
@@ -146,9 +147,9 @@ class Reader extends React.Component {
           method: "post",
           body: JSON.stringify({
             interest: randomInterest,
-            articleURL: articleInfo.url,
-            headline: articleInfo.title,
-            image: articleInfo.urlToImage,
+            articleURL: this.state.articleInfo.url,
+            headline: this.state.articleInfo.title,
+            image: this.state.articleInfo.urlToImage,
             timeReading: 0,
             date: today,
             _userId: this.props.userInfo.id
@@ -191,10 +192,7 @@ class Reader extends React.Component {
     return (
       <div id="reader">
         <Iframe url={this.state.url} />
-        <NextButton
-          userInfo={this.props.userInfo}
-          nextArticle={this.nextArticle}
-        />
+        <NextButton nextArticle={this.nextArticle} />
       </div>
     );
   }
