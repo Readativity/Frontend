@@ -11,38 +11,39 @@ import Food from "./icons/food-icon.png";
 import PopCulture from "./icons/pop-culture-icon.png";
 
 class Form extends React.Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
       password: "",
       confirmPassword: "",
       passwordMatch: false,
-      passwordWrong: false
-    }
+      passwordWrong: false,
+    };
   }
 
   checkPassword(value) {
-    this.setState({password: value});
+    this.setState({ password: value });
   }
 
   confirmPassword(value) {
-    this.setState({confirmPassword: value}, this.printConfirmation);
+    this.setState({ confirmPassword: value }, this.printConfirmation);
   }
 
   printConfirmation() {
-    if(this.state.password !== this.state.confirmPassword){
-      this.setState({passwordWrong: true});
+    if (this.state.password !== this.state.confirmPassword) {
+      this.setState({ passwordWrong: true });
     } else {
-      this.setState({passwordMatch: true});
+      this.setState({ passwordMatch: true });
       this.setState({ passwordWrong: false });
       setTimeout(() => {
-      this.setState({ passwordMatch: false });
-    }, 5000);}
+        this.setState({ passwordMatch: false });
+      }, 5000);
+    }
   }
 
 
   render() {
-    return(
+    return (
       <div>
         <UserForm
           id="CreateAccount"
@@ -50,30 +51,32 @@ class Form extends React.Component {
             this.props.submitHandlerSignUp(event);
           }}
         >
-          <h2 className="form-title">Create Reader profile</h2>
-          <label htmlFor="username">Username</label>
-          <input required type="text" name="username" placeholder="Create a Username" onChange={this.props.checkUserName} />
-          <UsernameWarning className={this.props.warningUsername ? "" : "hidden"} >*Username already exists*</UsernameWarning>
+          <Inputstyle>
+            <h2 className="form-title">Create Reader profile</h2>
+            <label htmlFor="username">Username</label>
+            <input required type="text" name="username" placeholder="Create a Username" onChange={this.props.checkUserName} />
+            <UsernameWarning className={this.props.warningUsername ? "" : "hidden"} >*Username already exists*</UsernameWarning>
 
-          <label htmlFor="password">Password</label>
-          <input required type="password" name="password" placeholder="Create a Password"  onChange={(event)=>{this.checkPassword(event.target.value)}}/>
+            <label htmlFor="password">Password</label>
+            <input required type="password" name="password" placeholder="Create a Password" onChange={event => { this.checkPassword(event.target.value); }} />
 
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input required type="password" name="confirmPassword" placeholder="Confirm Password" onChange={(event)=>{this.confirmPassword(event.target.value)}} />
-          <PasswordAcceptance className={this.state.passwordMatch ? "" : "hidden"} >*Passwords Match*</PasswordAcceptance>
-          <UsernameWarning className={this.state.passwordWrong ? "" : "hidden"} >*Passwords Do Not Match*</UsernameWarning>
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input required type="password" name="confirmPassword" placeholder="Confirm Password" onChange={event => { this.confirmPassword(event.target.value); }} />
+            <PasswordAcceptance className={this.state.passwordMatch ? "" : "hidden"} >*Passwords Match*</PasswordAcceptance>
+            <UsernameWarning className={this.state.passwordWrong ? "" : "hidden"} >*Passwords Do Not Match*</UsernameWarning>
 
-          <label htmlFor="name">Name</label>
-          <input required type="text" name="name" placeholder="Enter First and Last Name" />
+            <label htmlFor="name">Name</label>
+            <input required type="text" name="name" placeholder="Enter First and Last Name" />
 
-          <label htmlFor="email">Email Address</label>
-          <input required type="text" name="email" placeholder="Enter an Email address" />
+            <label htmlFor="email">Email Address</label>
+            <input required type="text" name="email" placeholder="Enter an Email address" />
+          </Inputstyle>
 
           <h2>Choose 3 Interests</h2>
           <ArticleCatagories>
-            <label htmlFor="world">
-              <input className="checkbox" type="checkbox" name="world" value="world" id="world" />
-              <img src={World} alt="some img" />
+            <label htmlFor="world" >
+              <input type="checkbox" name="world" value="world" id="world" />
+              <img src={World} alt="world" />
               <h3>WORLD</h3>
             </label>
 
@@ -184,6 +187,7 @@ const SubmitButton = styled.input`
   color: #3c3c3c;
   font-size: 20px;
   padding: 10px 20px 10px 20px;
+  margin-top: .5rem;
   text-decoration: none;
 `;
 
@@ -194,6 +198,15 @@ const UserForm = styled.form`
   padding-top: 0rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+`;
+
+const Inputstyle = styled.div`
+display: flex;
+  flex-flow: column;
+ padding-bottom: 1rem;
+ input {
+   border: .15rem solid;
+ }
 `;
 
 const ArticleCatagories = styled.div`
@@ -207,22 +220,17 @@ const ArticleCatagories = styled.div`
 
   input[type="checkbox"] {
     position: absolute;
+    top: 35%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    height: 7rem;
+    width: 7rem;
+    opacity: 0;
   }
+  input[type="checkbox"]:checked + img{
+    opacity: .3;
+ }
 
-  /* Default State */
-  div {
-    background: green;
-    width: 400px;
-    height: 100px;
-    line-height: 100px;
-    color: white;
-    text-align: center;
-  }
-
-  /* Toggled State */
-  input[type="checkbox"]:checked ~ div {
-    background: red;
-  }
   label {
     position: relative;
     text-align: center;
