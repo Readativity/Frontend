@@ -11,7 +11,14 @@ export default class DailyReading extends React.Component {
     this.dayNames = this.dayNames.bind(this);
   }
 
-  componentDidMount() {
+  dayNames(array) {
+    return array.map(day => {
+      var newDay = day.split(" ")[0];
+      return newDay;
+    });
+  }
+
+  render() {
     var week = {};
     for (var i = 0; i < 7; i++) {
       var key = new Date(new Date().setDate(new Date().getDate() - i)).toString().split(" ");
@@ -21,47 +28,38 @@ export default class DailyReading extends React.Component {
       var finalKey = key.join(" ");
       week[finalKey] = 0;
     }
-    this.props.data.forEach(activity => {
-      week[activity.date] += activity.timeReading;
-    });
-    this.setState({
-      week: week,
-      dates: Object.keys(week),
-      times: Object.values(week)
-    });
-  }
+    console.log("week", week);
+    for (let i = 0; i < this.props.data.length; i++) {
+      if (week[this.props.data[i].date] !== null) {
+        week[this.props.data[i].date] += this.props.data[i].timeReading;
+      }
+    }
 
-  dayNames(array) {
-    return array.map(day => {
-      var newDay = day.split(" ")[0];
-      return newDay;
-    });
-  }
+    const thisWeek = Object.keys(week);
 
-  render() {
     const chartData = {
-      labels: this.dayNames(this.state.dates),
+      labels: this.dayNames(thisWeek),
       datasets: [
         {
-          label: "My First dataset",
+          label: "Total Minutes Reading",
           fill: false,
           lineTension: 0.1,
-          backgroundColor: "#fdd130",
+          backgroundColor: "#136efb",
           borderColor: "#136efb",
           borderCapStyle: "butt",
           borderDash: [],
           borderDashOffset: 0.0,
           borderJoinStyle: "miter",
-          pointBorderColor: "#136efb",
+          pointBorderColor: "#fdd130",
           pointBackgroundColor: "#fdd130",
-          pointBorderWidth: 1,
-          pointHoverRadius: 5,
+          pointBorderWidth: 5,
+          pointHoverRadius: 10,
           pointHoverBackgroundColor: "#136efb",
           pointHoverBorderColor: "#fdd130",
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: this.state.times
+          data: Object.values(week)
         }
       ]
     };
