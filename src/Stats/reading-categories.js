@@ -1,5 +1,6 @@
 import React from "react";
 import { Polar } from "react-chartjs-2";
+import styled from "styled-components";
 
 export default class CategoryReading extends React.Component {
   constructor(props) {
@@ -7,24 +8,27 @@ export default class CategoryReading extends React.Component {
   }
 
   render() {
-    let labelArray=[this.props.userInfo.firstInterest, this.props.userInfo.secondInterest, this.props.userInfo.thirdInterest ];
+    let labelArray = [
+      this.props.userInfo.firstInterest,
+      this.props.userInfo.secondInterest,
+      this.props.userInfo.thirdInterest
+    ];
 
-    let firstInterestTime= 0;
-    let secondInterestTime= 0;
-    let thirdInterestTime= 0;
+    let firstInterestTime = 0;
+    let secondInterestTime = 0;
+    let thirdInterestTime = 0;
 
     this.props.data.forEach(activity => {
-      if(activity.interest === this.props.userInfo.firstInterest) {
+      if (activity.interest === this.props.userInfo.firstInterest) {
         firstInterestTime += activity.timeReading;
-      } else if(activity.interest === this.props.userInfo.secondInterest) {
+      } else if (activity.interest === this.props.userInfo.secondInterest) {
         secondInterestTime += activity.timeReading;
-      } else if(activity.interest === this.props.userInfo.thirdInterest) {
+      } else if (activity.interest === this.props.userInfo.thirdInterest) {
         thirdInterestTime += activity.timeReading;
       }
-    })
+    });
 
-    let dataArray = [firstInterestTime, secondInterestTime, thirdInterestTime]
-
+    let dataArray = [firstInterestTime, secondInterestTime, thirdInterestTime];
 
     const chartData = {
       datasets: [
@@ -37,9 +41,19 @@ export default class CategoryReading extends React.Component {
       labels: labelArray
     };
     return (
-      <div id="category-reading-chart">
+      <Container id="category-reading-chart">
+        <Title>Time Reading by Interest</Title>
         <Polar data={chartData} />
-      </div>
+      </Container>
     );
   }
 }
+
+const Container = styled.div`
+  padding: 1rem;
+`;
+
+const Title = styled.h2`
+  font-size: 1.3em;
+  margin: 0.7em;
+`;

@@ -1,5 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
+import styled from "styled-components";
 
 export default class DailyReading extends React.Component {
   constructor(props) {
@@ -65,8 +66,14 @@ export default class DailyReading extends React.Component {
     };
     return (
       <div id="daily-reading-chart">
+        <Title>Time Reading this Week</Title>
         <Line data={chartData} />
       </div>
     );
   }
 }
+
+const Title = styled.h2`
+  font-size: 1.3em;
+  margin: 0.7em;
+`;

@@ -24,7 +24,8 @@ ul,
 li,
 select,
 option,
-input {
+input,
+label {
   color: var(--dark-gray);
   font-family: var(--roboto);
 }
@@ -44,13 +45,13 @@ input {
   background-color: var(--blue);
 }
 
-.main{
+.main {
   margin: 0rem;
   height: 70vh;
   width: 100vw;
 }
 
-.createAccountMain{
+.createAccountMain {
   margin: 0rem;
   height: 120vh;
   width: 100vw;
@@ -61,7 +62,7 @@ input {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  background-image: url('./Home/splash.jpg');
+  background-image: url("./Home/splash.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
