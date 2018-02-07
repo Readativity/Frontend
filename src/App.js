@@ -123,6 +123,7 @@ class App extends Component {
 
   logout() {
     this.setState({ userInfo: {} });
+    this.setState({ loginView: "form" });
     this.closeModal();
   }
 
