@@ -35,8 +35,10 @@ class Form extends React.Component {
       setTimeout(() => {
         this.setState({ passwordWrong: false });
       }, 3000);
-    } else {this.setState({passwordMatch: true});
-    setTimeout(() => {
+    } else {
+      this.setState({passwordMatch: true});
+      this.setState({ passwordWrong: false });
+      setTimeout(() => {
       this.setState({ passwordMatch: false });
     }, 5000);}
   }
