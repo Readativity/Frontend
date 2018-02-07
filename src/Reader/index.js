@@ -19,7 +19,20 @@ class Reader extends React.Component {
       "apnews.com",
       "espn.com",
       "reuters.com",
-      "bbc.com"
+      "bbc.com",
+      "nbcnews.com",
+      "abcnews.com",
+      "usatoday.com",
+      "sciencedaily.com",
+      "msnbc.com",
+      "wired.com",
+      "politico.com",
+      "si.com",
+      "delish.com",
+      "refinery29.com",
+      "foodandwine.com",
+      "elle.com",
+      "today.com"
     ];
     var domainsQuery = "&domains=";
     for (let i = 0; i < domains.length; i++) {
