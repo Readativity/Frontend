@@ -9,6 +9,7 @@ import CreateAccount from "./Form";
 import Dashboard from "./Dashboard";
 import Stats from "./Stats";
 import Footer from "./Footer";
+import History from "./Stats/history";
 
 class App extends Component {
   constructor(props) {
@@ -171,6 +172,10 @@ class App extends Component {
             <Route
               path="/reader"
               component={() => <Reader userInfo={this.state.userInfo} />}
+            />
+            <Route
+              path="/history"
+              component={() => <History userInfo={this.state.userInfo} />}
             />
             <Footer userInfo={this.state.userInfo} />
           </div>
