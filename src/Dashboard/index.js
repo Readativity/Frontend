@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import EditLogout from "./editlogout"
 import styled from "styled-components";
 
 
@@ -16,6 +17,7 @@ const Dashboard = (props) => (
         See Stats
       </div>
     </StyleLink>
+    <EditLogout />
   </main>
 );
 

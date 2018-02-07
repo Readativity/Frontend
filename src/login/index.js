@@ -38,7 +38,7 @@ class Login extends React.Component {
           </div>
           <div className={((this.props.loginView === 'link') ? ' ' : 'hidden')}>
             <LoginDiv2>
-              <LinkStyled to={'/dashboard'}> Go to my account</LinkStyled>
+              <LinkStyled to={'/dashboard'}> Go To My Account</LinkStyled>
             </LoginDiv2>
           </div>
         </Modal>
