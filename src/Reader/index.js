@@ -67,46 +67,50 @@ class Reader extends React.Component {
         const date = new Date();
         const monthNum = date.getMonth();
         const dayNum = date.getDay();
-        const dateNum = date.getDate();
+        var dateNum = date.getDate();
+        if (dateNum < 10) {
+          dateNum = `0${dateNum}`;
+        }
+        console.log(dateNum);
         const yearNum = date.getFullYear();
         let monthWord;
         let dayWord;
         switch (monthNum) {
           case 0:
-            monthWord = "January";
+            monthWord = "Jan";
             break;
           case 1:
-            monthWord = "February";
+            monthWord = "Feb";
             break;
           case 2:
-            monthWord = "March";
+            monthWord = "Mar";
             break;
           case 3:
-            monthWord = "April";
+            monthWord = "Apr";
             break;
           case 4:
             monthWord = "May";
             break;
           case 5:
-            monthWord = "June";
+            monthWord = "Jun";
             break;
           case 6:
-            monthWord = "July";
+            monthWord = "Jul";
             break;
           case 7:
-            monthWord = "August";
+            monthWord = "Aug";
             break;
           case 8:
-            monthWord = "September";
+            monthWord = "Sep";
             break;
           case 9:
-            monthWord = "October";
+            monthWord = "Oct";
             break;
           case 10:
-            monthWord = "November";
+            monthWord = "Nov";
             break;
           case 11:
-            monthWord = "December";
+            monthWord = "Dec";
             break;
           default:
             break;
@@ -114,30 +118,30 @@ class Reader extends React.Component {
 
         switch (dayNum) {
           case 0:
-            dayWord = "Sunday";
+            dayWord = "Sun";
             break;
           case 1:
-            dayWord = "Monday";
+            dayWord = "Mon";
             break;
           case 2:
-            dayWord = "Tuesday";
+            dayWord = "Tues";
             break;
           case 3:
-            dayWord = "Wednesday";
+            dayWord = "Wed";
             break;
           case 4:
-            dayWord = "Thursday";
+            dayWord = "Thu";
             break;
           case 5:
-            dayWord = "Friday";
+            dayWord = "Fri";
             break;
           case 6:
-            dayWord = "Saturday";
+            dayWord = "Sat";
             break;
           default:
             break;
         }
-        const today = dateNum + " " + dayWord + " " + monthWord + " " + yearNum;
+        const today = dayWord + " " + monthWord + " " + dateNum + " " + yearNum;
         fetch("https://readativity.herokuapp.com/activity", {
           method: "post",
           body: JSON.stringify({
