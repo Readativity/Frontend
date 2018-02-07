@@ -103,7 +103,13 @@ class App extends Component {
       method: "POST",
       body: JSON.stringify(this.handleSignUp(event)),
       headers: new Headers({ "Content-Type": "application/json" })
-    }).catch(err => console.log(err));
+    }).then(response => response.json())
+    .then(response => {
+      let oldUsers = this.state.users;
+      oldUsers.push(response.users);
+      this.setState({users: oldUsers});
+    })
+    .catch(err => console.log(err));
   }
 
   logout() {

@@ -41,7 +41,7 @@ export default class DailyReading extends React.Component {
 
   render() {
     const chartData = {
-      labels: dayNames(this.state.dates),
+      labels: this.dayNames(this.state.dates),
       datasets: [
         {
           label: "My First dataset",
