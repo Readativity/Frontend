@@ -32,9 +32,6 @@ class Form extends React.Component {
   printConfirmation() {
     if(this.state.password !== this.state.confirmPassword){
       this.setState({passwordWrong: true});
-      setTimeout(() => {
-        this.setState({ passwordWrong: false });
-      }, 3000);
     } else {
       this.setState({passwordMatch: true});
       this.setState({ passwordWrong: false });
