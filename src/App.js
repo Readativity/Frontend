@@ -73,6 +73,8 @@ class App extends Component {
     });
   }
 
+
+
   handleSignUp(event) {
     const data = new FormData(event.target);
     const checkboxArray = document.querySelectorAll(".checkbox");
