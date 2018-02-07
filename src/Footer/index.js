@@ -4,32 +4,24 @@ import styled from "styled-components";
 
 class HomeFooter extends React.Component {
   render() {
-    if(this.props.userInfo.id === undefined) {
+    if (this.props.userInfo.id === undefined) {
       return (
         <div id="footer">
-          <FooterNav >
-            <StyledLink to="/">
-              Home
-            </StyledLink>
-            <StyledLink to="/about">
-              About Readativity
-            </StyledLink>
+          <FooterNav>
+            <StyledLink to="/">Home</StyledLink>
+            <StyledLink to="/about">About Readativity</StyledLink>
           </FooterNav>
-          <span>&copy; 2018 Readativity, Inc.</span>
+          <FooterSpan>&copy; 2018 Readativity, Inc.</FooterSpan>
         </div>
       );
     } else {
       return (
         <div id="footer">
-          <FooterNav >
-            <StyledLink to="/dashboard">
-              Dashboard
-            </StyledLink>
-            <StyledLink to="/about">
-              About Readativity
-            </StyledLink>
+          <FooterNav>
+            <StyledLink to="/dashboard">Dashboard</StyledLink>
+            <StyledLink to="/about">About Readativity</StyledLink>
           </FooterNav>
-          <span>&copy; 2018 Readativity, Inc.</span>
+          <FooterSpan>&copy; 2018 Readativity, Inc.</FooterSpan>
         </div>
       );
     }
@@ -53,4 +45,8 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   margin-left: 1.5rem;
   font-size: 1.2rem;
+`;
+
+const FooterSpan = styled.span`
+  color: var(--light-gray);
 `;
