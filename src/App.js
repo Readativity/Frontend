@@ -19,7 +19,7 @@ class App extends Component {
       modalIsOpen: false,
       loginView: "form",
       warning: false,
-      warningUsername: false,
+      warningUsername: false
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -35,7 +35,7 @@ class App extends Component {
       .then(response => response.json())
       .then(userinfo => {
         this.setState({
-          users: userinfo.profiles,
+          users: userinfo.profiles
         });
       })
       .catch(err => console.log(err));
@@ -74,8 +74,6 @@ class App extends Component {
     });
   }
 
-
-
   handleSignUp(event) {
     const data = new FormData(event.target);
     const checkboxArray = document.querySelectorAll(".checkbox");
@@ -92,7 +90,7 @@ class App extends Component {
       email: data.get("email"),
       firstInterest: catagoriesArray[0],
       secondInterest: catagoriesArray[1],
-      thirdInterest: catagoriesArray[2],
+      thirdInterest: catagoriesArray[2]
     };
     event.target.reset();
     console.log(form);
@@ -104,13 +102,12 @@ class App extends Component {
     fetch("https://readativity.herokuapp.com/users", {
       method: "POST",
       body: JSON.stringify(this.handleSignUp(event)),
-      headers: new Headers({ "Content-Type": "application/json" }),
-    })
-      .catch(err => console.log(err));
+      headers: new Headers({ "Content-Type": "application/json" })
+    }).catch(err => console.log(err));
   }
 
   logout() {
-    this.setState({userInfo: {}});
+    this.setState({ userInfo: {} });
     this.closeModal();
   }
 
@@ -136,10 +133,34 @@ class App extends Component {
               )}
             />
             <Route path="/about" component={About} />
-            <Route path="/createaccount" component={() => <CreateAccount handleSignUp={this.handleSignUp} submitHandlerSignUp={this.submitHandlerSignUp} checkUserName={this.checkUserName} warningUsername={this.state.warningUsername} />} />
-            <Route path="/dashboard" component={() => <Dashboard userInfo={this.state.userInfo} logout={this.logout}/>} />
-            <Route path="/stats" component={() => <Stats userInfo={this.state.userInfo} />} />
-            <Route path="/reader" component={() => <Reader userInfo={this.state.userInfo} />} />
+            <Route
+              path="/createaccount"
+              component={() => (
+                <CreateAccount
+                  handleSignUp={this.handleSignUp}
+                  submitHandlerSignUp={this.submitHandlerSignUp}
+                  checkUserName={this.checkUserName}
+                  warningUsername={this.state.warningUsername}
+                />
+              )}
+            />
+            <Route
+              path="/dashboard"
+              component={() => (
+                <Dashboard
+                  userInfo={this.state.userInfo}
+                  logout={this.logout}
+                />
+              )}
+            />
+            <Route
+              path="/stats"
+              component={() => <Stats userInfo={this.state.userInfo} />}
+            />
+            <Route
+              path="/reader"
+              component={() => <Reader userInfo={this.state.userInfo} />}
+            />
             <Footer userInfo={this.state.userInfo} />
           </div>
         </Router>

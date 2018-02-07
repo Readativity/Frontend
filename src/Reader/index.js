@@ -10,7 +10,9 @@ class Reader extends React.Component {
     this.state = {
       url: ""
     };
+    this.nextArticle = this.nextArticle.bind(this);
   }
+
   componentDidMount() {
     const baseUrl = "https://newsapi.org/v2/everything?language=en";
     const domains = [
@@ -18,12 +20,10 @@ class Reader extends React.Component {
       "time.com",
       "apnews.com",
       "espn.com",
-      "reuters.com",
       "bbc.com",
       "nbcnews.com",
       "abcnews.com",
       "usatoday.com",
-      "sciencedaily.com",
       "msnbc.com",
       "wired.com",
       "politico.com",
@@ -176,14 +176,21 @@ class Reader extends React.Component {
           })
           .catch(console.error);
       })
-      .catch(err => console.log(err));
+      .catch(console.error);
+  }
+
+  nextArticle() {
+    this.componentDidMount();
   }
 
   render() {
     return (
       <div id="reader">
         <Iframe url={this.state.url} />
-        <NextButton />
+        <NextButton
+          userInfo={this.props.userInfo}
+          nextArticle={this.nextArticle}
+        />
       </div>
     );
   }
