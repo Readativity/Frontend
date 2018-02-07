@@ -104,15 +104,20 @@ class App extends Component {
       method: "POST",
       body: JSON.stringify(this.handleSignUp(event)),
       headers: new Headers({ "Content-Type": "application/json" })
-    }).then(response => response.json())
-    .then(response => {
-      let oldUsers = this.state.users;
-      oldUsers.push(response.users);
-      this.setState({users: oldUsers});
     })
-    .then(this.setState({confirmUser: true}))
-    .then(setTimeout(() => {this.setState({confirmUser: false})}, 5000))
-    .catch(err => console.log(err));
+      .then(response => response.json())
+      .then(response => {
+        let oldUsers = this.state.users;
+        oldUsers.push(response.users);
+        this.setState({ users: oldUsers });
+      })
+      .then(this.setState({ confirmUser: true }))
+      .then(
+        setTimeout(() => {
+          this.setState({ confirmUser: false });
+        }, 5000)
+      )
+      .catch(err => console.log(err));
   }
 
   logout() {
@@ -123,10 +128,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
         <Router>
           <div>
-            <Header userInfo={this.state.userInfo}/>
+            <Header userInfo={this.state.userInfo} />
             <Route
               exact
               path="/"

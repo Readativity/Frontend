@@ -24,7 +24,6 @@ class Reader extends React.Component {
       "bbc.com",
       "nbcnews.com",
       "abcnews.com",
-      "usatoday.com",
       "msnbc.com",
       "wired.com",
       "politico.com",
