@@ -19,7 +19,8 @@ class App extends Component {
       modalIsOpen: false,
       loginView: "form",
       warning: false,
-      warningUsername: false
+      warningUsername: false,
+      confirmUser: false
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -109,6 +110,8 @@ class App extends Component {
       oldUsers.push(response.users);
       this.setState({users: oldUsers});
     })
+    .then(this.setState({confirmUser: true}))
+    .then(setTimeout(() => {this.setState({confirmUser: false})}, 5000))
     .catch(err => console.log(err));
   }
 
@@ -147,6 +150,7 @@ class App extends Component {
                   submitHandlerSignUp={this.submitHandlerSignUp}
                   checkUserName={this.checkUserName}
                   warningUsername={this.state.warningUsername}
+                  confirmUser={this.state.confirmUser}
                 />
               )}
             />
