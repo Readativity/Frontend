@@ -1,5 +1,6 @@
 # Welcome to Readativity:
 Readativity is where reading meets productivity! This app encourages you to read more while making the most of your time. You can keep track of how long you read everyday and check how much you read over the week.
+* [Deployed link](https://readativity-app.herokuapp.com/)
 
 ![home](https://user-images.githubusercontent.com/26389841/35991086-44684720-0cc3-11e8-8dea-217afda081e8.jpg)
 
@@ -25,7 +26,7 @@ The Dashboard gives the user access to the options "Start Reading" and "See Stat
 ![dashboard](https://user-images.githubusercontent.com/26389841/35991049-329625da-0cc3-11e8-96d1-130db7d332b8.jpg)
 
 ## Reader:
-The Reader is the main feature of Readativity.  Once the user clicks Start Reading, they will be instantly served an article that is pulled from the Google News API based on their 3 interests.  The User also has access to the New Article button which will randomly serve up another article based on the user's interests.
+The Reader is the main feature of Readativity.  Once the user clicks "Start Reading", they will be instantly served an article that is pulled from the Google News API based on their 3 interests.  The User also has access to the "New Article" button which will randomly serve up another article based on the user's interests.
 
 ![reader](https://user-images.githubusercontent.com/26389841/35990976-006ec378-0cc3-11e8-9314-c90d24ac81fc.gif)
 
@@ -35,29 +36,23 @@ The Stats page will display the user's reading statistics on 2 graphs.  The "Tim
 ![stats](https://user-images.githubusercontent.com/26389841/35991887-dc0fc290-0cc5-11e8-86ef-bc4ef6d24a9b.gif)
 
 ## Article History:
-Article History will display a list of articles sorted by the date read and the article headline.
+"Article History" will display a list of articles sorted by the date read and the article headline.
 
 ![history](https://user-images.githubusercontent.com/26389841/35991862-c55eb844-0cc5-11e8-9148-48f1cd5e684a.gif)
 
 # Installation
 After forking and cloning this repo:
 ```
-cd goal-tracker-react
-=======
 cd into Frontend
 npm install
->>>>>>> 7beb2e70463f8108597eae0580988867d0d0c544
-
 ```
-This command will move you into the app directory and install all the necessary dependencies.
+* This command will move you into the app directory and install all the necessary dependencies.
 
 # API Integration
 Readativity utilizes [Google's News API](https://newsapi.org/s/google-news-api) to serve up articles based on user preferences.
 
-
 # License
 MIT License Copyright (c) 2018 Readativity
->>>>>>> 6edea6626422bd5f5543ba6530d7811f539bbf64
 
 # Our Team
 
