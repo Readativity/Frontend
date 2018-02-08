@@ -1,6 +1,7 @@
 {
   "name": "galvanize-unity",
   "version": "0.1.0",
+  "license": "MIT License Copyright (c) 2018 Readativity",
   "private": true,
   "dependencies": {
     "antd": "^3.1.6",
