@@ -43,10 +43,8 @@ The Stats page will display the user's reading statistics on 2 graphs.  The "Tim
 # Installation
 After forking and cloning this repo:
 ```
-
 cd into Frontend
 npm install
-
 ```
 * This command will move you into the app directory and install all the necessary dependencies.
 
