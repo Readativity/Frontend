@@ -124,7 +124,7 @@ class App extends Component {
   logout() {
     this.setState({ userInfo: {} });
     this.setState({ loginView: "form" });
-    this.setState({ warningUsername: false });
+    this.setState({ warning: false });
     this.closeModal();
   }
 

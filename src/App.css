@@ -121,3 +121,9 @@ label {
 .hidden {
   display: none;
 }
+
+@media (min-width: 700px) {
+  .modal {
+    width: 50%;
+  }
+}

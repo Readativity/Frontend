@@ -38,6 +38,10 @@ const Button = styled.div`
   justify-content: center;
   align-items: center;
   color: var(--blue);
+
+  @media (min-width: 700px) {
+   width: 50%;
+ }
 `;
 
 const StyleLink = styled(Link) `
