@@ -10,6 +10,7 @@ import Dashboard from "./Dashboard";
 import Stats from "./Stats";
 import Footer from "./Footer";
 import History from "./Stats/history";
+import EditAccount from "./Form/editform";
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +22,8 @@ class App extends Component {
       loginView: "form",
       warning: false,
       warningUsername: false,
-      confirmUser: false
+      confirmUser: false,
+      confirmEdit: false,
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -30,6 +32,7 @@ class App extends Component {
     this.submitHandlerSignUp = this.submitHandlerSignUp.bind(this);
     this.checkUserName = this.checkUserName.bind(this);
     this.logout = this.logout.bind(this);
+    this.handleEditUser = this.handleEditUser.bind(this);
   }
 
   componentDidMount() {
@@ -95,7 +98,6 @@ class App extends Component {
       thirdInterest: catagoriesArray[2]
     };
     event.target.reset();
-    console.log(form);
     return form;
   }
 
@@ -116,6 +118,51 @@ class App extends Component {
       .then(
         setTimeout(() => {
           this.setState({ confirmUser: false });
+        }, 5000)
+      )
+      .catch(err => console.log(err));
+  }
+
+  handleEditUser(event, id) {
+    event.preventDefault();
+    let userId = id;
+    const data = new FormData(event.target);
+    const checkboxArray = document.querySelectorAll(".checkbox");
+    const catagoriesArray = [];
+    for (let i = 0; i < checkboxArray.length; i++) {
+      if (checkboxArray[i].checked) {
+        catagoriesArray.push(checkboxArray[i].value);
+      }
+    }
+    const form = {
+      username: data.get("username"),
+      password: data.get("password"),
+      name: data.get("name"),
+      email: data.get("email"),
+      firstInterest: catagoriesArray[0],
+      secondInterest: catagoriesArray[1],
+      thirdInterest: catagoriesArray[2]
+    };
+    this.submitEditUser(form, userId)
+    event.target.reset();
+  }
+
+  submitEditUser(form, id) {
+    fetch("https://readativity.herokuapp.com/users/" + id, {
+      method: "PUT",
+      body: JSON.stringify(form),
+      headers: new Headers({ "Content-Type": "application/json" })
+    })
+      .then(response => response.json())
+      .then(response => {
+        let oldUsers = this.state.users;
+        oldUsers.push(response.users);
+        this.setState({ users: oldUsers });
+      })
+      .then(this.setState({ confirmEdit: true }))
+      .then(
+        setTimeout(() => {
+          this.setState({ confirmEdit: false });
         }, 5000)
       )
       .catch(err => console.log(err));
@@ -159,6 +206,18 @@ class App extends Component {
                   checkUserName={this.checkUserName}
                   warningUsername={this.state.warningUsername}
                   confirmUser={this.state.confirmUser}
+                />
+              )}
+            />
+            <Route
+              path="/editaccount"
+              component={() => (
+                <EditAccount
+                  handleEditUser={this.handleEditUser}
+                  userInfo={this.state.userInfo}
+                  checkUserName={this.checkUserName}
+                  warningUsername={this.state.warningUsername}
+                  confirmEdit={this.state.confirmEdit}
                 />
               )}
             />
