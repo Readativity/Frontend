@@ -46,7 +46,6 @@ cd goal-tracker-react
 =======
 cd into Frontend
 npm install
->>>>>>> 7beb2e70463f8108597eae0580988867d0d0c544
 
 ```
 This command will move you into the app directory and install all the necessary dependencies.
@@ -57,7 +56,6 @@ Readativity utilizes [Google's News API](https://newsapi.org/s/google-news-api) 
 
 # License
 MIT License Copyright (c) 2018 Readativity
->>>>>>> 6edea6626422bd5f5543ba6530d7811f539bbf64
 
 # Our Team
 
