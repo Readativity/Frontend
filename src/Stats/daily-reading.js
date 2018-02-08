@@ -65,13 +65,21 @@ export default class DailyReading extends React.Component {
       ]
     };
     return (
-      <div id="daily-reading-chart">
+      <Container id="daily-reading-chart">
         <Title>Time Reading this Week</Title>
         <Line data={chartData} />
-      </div>
+      </Container>
     );
   }
 }
+
+const Container = styled.div`
+  padding: 1rem;
+  width: 50vh;
+  @media screen and (min-width: 320px) and (max-width: 480px) {
+    width: 90vw;
+  }
+`;
 
 const Title = styled.h2`
   font-size: 1.3em;

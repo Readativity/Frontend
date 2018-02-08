@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const Dashboard = props => (
   <main id="dashboard" className="main">
-    <Welcome>Welcome {props.userInfo.name}!</Welcome>
+    <Welcome>Welcome to your dashboard, {props.userInfo.name}!</Welcome>
     <Break />
     <StyleLink to="/reader">
       <div>Start Reading</div>

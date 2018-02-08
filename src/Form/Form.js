@@ -18,7 +18,7 @@ class Form extends React.Component {
       confirmPassword: "",
       passwordMatch: false,
       passwordWrong: false,
-      checked: 0,
+      checked: 0
     };
   }
 
@@ -47,12 +47,12 @@ class Form extends React.Component {
     if (event.target.checked === true) {
       num++;
       this.setState({
-        checked: num,
+        checked: num
       });
     } else {
       num--;
       this.setState({
-        checked: num,
+        checked: num
       });
     }
     console.log(event.target.checked);
@@ -63,7 +63,7 @@ class Form extends React.Component {
     checkboxArray.forEach(item => {
       item.checked = false;
       this.setState({
-        checked: 0,
+        checked: 0
       });
     });
   }
@@ -73,207 +73,214 @@ class Form extends React.Component {
       this.lockCheckbox();
     }
     return (
-      <div>
-        <UserForm
-          id="CreateAccount"
-          onSubmit={event => {
-            this.props.submitHandlerSignUp(event);
-          }}
-        >
-          <Inputstyle>
-            <h2 className="form-title">Create Reader profile</h2>
-            <label htmlFor="username">Username</label>
-            <input
-              required
-              type="text"
-              name="username"
-              placeholder="Create a Username"
-              onChange={this.props.checkUserName}
-            />
-            <UsernameWarning className={this.props.warningUsername ? "" : "hidden"}>
-              *Username already exists*
-            </UsernameWarning>
+      <Container>
+        <Wrapper>
+          <UserForm
+            id="CreateAccount"
+            onSubmit={event => {
+              this.props.submitHandlerSignUp(event);
+            }}
+          >
+            <Inputstyle>
+              <Title className="form-title">Create Your Profile</Title>
+              <label htmlFor="username">Username</label>
+              <InputField
+                required
+                type="text"
+                name="username"
+                placeholder="Create a Username"
+                onChange={this.props.checkUserName}
+              />
+              <UsernameWarning className={this.props.warningUsername ? "" : "hidden"}>
+                *Username already exists*
+              </UsernameWarning>
 
-            <label htmlFor="password">Password</label>
-            <input
-              required
-              type="password"
-              name="password"
-              placeholder="Create a Password"
-              onChange={event => {
-                this.checkPassword(event.target.value);
-              }}
-            />
-
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              required
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirm Password"
-              onChange={event => {
-                this.confirmPassword(event.target.value);
-              }}
-            />
-            <PasswordAcceptance className={this.state.passwordMatch ? "" : "hidden"}>
-              *Passwords Match*
-            </PasswordAcceptance>
-            <UsernameWarning className={this.state.passwordWrong ? "" : "hidden"}>
-              *Passwords Do Not Match*
-            </UsernameWarning>
-
-            <label htmlFor="name">Name</label>
-            <input required type="text" name="name" placeholder="Enter First and Last Name" />
-
-            <label htmlFor="email">Email Address</label>
-            <input required type="text" name="email" placeholder="Enter an Email address" />
-          </Inputstyle>
-
-          <h2>Choose up to 3 Interests</h2>
-          <ArticleCatagories>
-            <label htmlFor="world">
-              <input
-                className="checkbox"
-                type="checkbox"
-                name="world"
-                value="world"
-                id="world"
+              <label htmlFor="password">Password</label>
+              <InputField
+                required
+                type="password"
+                name="password"
+                placeholder="Create a Password"
                 onChange={event => {
-                  this.checkboxLimiter(event);
+                  this.checkPassword(event.target.value);
                 }}
               />
-              <img src={World} alt="world" />
-              <h3>WORLD</h3>
-            </label>
 
-            <label htmlFor="Technology">
-              <input
-                className="checkbox"
-                type="checkbox"
-                name="Technology"
-                value="technology"
-                id="Technology"
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <InputField
+                required
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
                 onChange={event => {
-                  this.checkboxLimiter(event);
+                  this.confirmPassword(event.target.value);
                 }}
               />
-              <img src={Tech} alt="some img" />
-              <h3>TECH</h3>
-            </label>
+              <PasswordAcceptance className={this.state.passwordMatch ? "" : "hidden"}>
+                *Passwords Match*
+              </PasswordAcceptance>
+              <UsernameWarning className={this.state.passwordWrong ? "" : "hidden"}>
+                *Passwords Do Not Match*
+              </UsernameWarning>
 
-            <label htmlFor="Health">
-              <input
-                className="checkbox"
-                type="checkbox"
-                name="Health"
-                value="health"
-                id="Health"
-                onChange={event => {
-                  this.checkboxLimiter(event);
-                }}
+              <label htmlFor="name">Name</label>
+              <InputField
+                required
+                type="text"
+                name="name"
+                placeholder="Enter First and Last Name"
               />
-              <img src={Health} alt="some img" />
-              <h3>HEALTH</h3>
-            </label>
 
-            <label htmlFor="Pop-culture">
-              <input
-                className="checkbox"
-                type="checkbox"
-                name="Pop-culture"
-                value="pop-culture"
-                id="Pop-culture"
-                onChange={event => {
-                  this.checkboxLimiter(event);
-                }}
-              />
-              <img src={PopCulture} alt="some img" />
-              <h3>POP CULTURE</h3>
-            </label>
+              <label htmlFor="email">Email Address</label>
+              <InputField required type="text" name="email" placeholder="Enter an Email address" />
+            </Inputstyle>
 
-            <label htmlFor="Business">
-              <input
-                className="checkbox"
-                type="checkbox"
-                name="Business"
-                value="business"
-                id="Business"
-                onChange={event => {
-                  this.checkboxLimiter(event);
-                }}
-              />
-              <img src={Business} alt="some img" />
-              <h3>BUSINESS</h3>
-            </label>
+            <Title>Choose up to 3 Interests</Title>
+            <ArticleCatagories>
+              <label htmlFor="world">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  name="world"
+                  value="world"
+                  id="world"
+                  onChange={event => {
+                    this.checkboxLimiter(event);
+                  }}
+                />
+                <img src={World} alt="world" />
+                <h3>WORLD</h3>
+              </label>
 
-            <label htmlFor="Sports">
-              <input
-                className="checkbox"
-                type="checkbox"
-                name="Sports"
-                value="sports"
-                id="Sports"
-                onChange={event => {
-                  this.checkboxLimiter(event);
-                }}
-              />
-              <img src={Sports} alt="some img" />
-              <h3>SPORTS</h3>
-            </label>
+              <label htmlFor="Technology">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  name="Technology"
+                  value="technology"
+                  id="Technology"
+                  onChange={event => {
+                    this.checkboxLimiter(event);
+                  }}
+                />
+                <img src={Tech} alt="some img" />
+                <h3>TECH</h3>
+              </label>
 
-            <label htmlFor="Science">
-              <input
-                className="checkbox"
-                type="checkbox"
-                name="Science"
-                value="science"
-                id="Science"
-                onChange={event => {
-                  this.checkboxLimiter(event);
-                }}
-              />
-              <img src={Science} alt="some img" />
-              <h3>SCIENCE</h3>
-            </label>
+              <label htmlFor="Health">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  name="Health"
+                  value="health"
+                  id="Health"
+                  onChange={event => {
+                    this.checkboxLimiter(event);
+                  }}
+                />
+                <img src={Health} alt="some img" />
+                <h3>HEALTH</h3>
+              </label>
 
-            <label htmlFor="Food">
-              <input
-                className="checkbox"
-                type="checkbox"
-                name="Food"
-                value="food"
-                id="Food"
-                onChange={event => {
-                  this.checkboxLimiter(event);
-                }}
-              />
-              <img src={Food} alt="some img" />
-              <h3>FOOD</h3>
-            </label>
+              <label htmlFor="Pop-culture">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  name="Pop-culture"
+                  value="pop-culture"
+                  id="Pop-culture"
+                  onChange={event => {
+                    this.checkboxLimiter(event);
+                  }}
+                />
+                <img src={PopCulture} alt="some img" />
+                <h3>POP CULTURE</h3>
+              </label>
 
-            <label htmlFor="Politics">
-              <input
-                className="checkbox"
-                type="checkbox"
-                name="Politics"
-                value="politics"
-                id="Politics"
-                onChange={event => {
-                  this.checkboxLimiter(event);
-                }}
-              />
-              <img src={Politics} alt="some img" />
-              <h3>POLITICS</h3>
-            </label>
-          </ArticleCatagories>
+              <label htmlFor="Business">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  name="Business"
+                  value="business"
+                  id="Business"
+                  onChange={event => {
+                    this.checkboxLimiter(event);
+                  }}
+                />
+                <img src={Business} alt="some img" />
+                <h3>BUSINESS</h3>
+              </label>
 
-          <SubmitButton type="submit" name="submit" value="Submit" />
-        </UserForm>
-        <p className={this.props.confirmUser ? " " : "hidden"}>
-          {" "}
-          Thank you for creating an account. Return to Home to Login.
-        </p>
-      </div>
+              <label htmlFor="Sports">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  name="Sports"
+                  value="sports"
+                  id="Sports"
+                  onChange={event => {
+                    this.checkboxLimiter(event);
+                  }}
+                />
+                <img src={Sports} alt="some img" />
+                <h3>SPORTS</h3>
+              </label>
+
+              <label htmlFor="Science">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  name="Science"
+                  value="science"
+                  id="Science"
+                  onChange={event => {
+                    this.checkboxLimiter(event);
+                  }}
+                />
+                <img src={Science} alt="some img" />
+                <h3>SCIENCE</h3>
+              </label>
+
+              <label htmlFor="Food">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  name="Food"
+                  value="food"
+                  id="Food"
+                  onChange={event => {
+                    this.checkboxLimiter(event);
+                  }}
+                />
+                <img src={Food} alt="some img" />
+                <h3>FOOD</h3>
+              </label>
+
+              <label htmlFor="Politics">
+                <input
+                  className="checkbox"
+                  type="checkbox"
+                  name="Politics"
+                  value="politics"
+                  id="Politics"
+                  onChange={event => {
+                    this.checkboxLimiter(event);
+                  }}
+                />
+                <img src={Politics} alt="some img" />
+                <h3>POLITICS</h3>
+              </label>
+            </ArticleCatagories>
+
+            <SubmitButton type="submit" name="submit" value="Submit" />
+          </UserForm>
+          <p className={this.props.confirmUser ? " " : "hidden"}>
+            {" "}
+            Thank you for creating an account. Return to Home to Login.
+          </p>
+        </Wrapper>
+      </Container>
     );
   }
 }
@@ -316,7 +323,7 @@ const Inputstyle = styled.div`
   flex-flow: column;
   input {
     border: 0.15rem solid;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
   label {
     text-align: left;
@@ -358,4 +365,25 @@ const ArticleCatagories = styled.div`
       padding: 0.5rem;
     }
   }
+`;
+
+const InputField = styled.input`
+  font-size: 1rem;
+`;
+
+const Title = styled.h2`
+  font-size: 1.3em;
+`;
+
+const Wrapper = styled.div`
+  overflow: scroll;
+  width: 50vw;
+  @media screen and (min-width: 320px) and (max-width: 480px) {
+    width: 100vw;
+  }
+`;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
 `;
