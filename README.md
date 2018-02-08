@@ -3,13 +3,14 @@ Readativity is where reading meets productivity! This app encourages you to read
 
 ![home](https://user-images.githubusercontent.com/26389841/35991086-44684720-0cc3-11e8-8dea-217afda081e8.jpg)
 
-# Project description
+# Project features
 ## Create an Account:
 User's can create an account that will serve up articles based on the user's 3 main interests, track the user's reading statistics and record the user's reading history.
 
 ![createaccount](https://user-images.githubusercontent.com/26389841/35991021-1ec1e1fc-0cc3-11e8-8dca-8bd9d1d23e86.gif)
 
 ## Edit an Account:
+Here user's can edit account settings as well choose new interests. 
 
 ![edit](https://user-images.githubusercontent.com/26389841/35990895-c4bc55fc-0cc2-11e8-8bb5-f16e4008a94c.gif)
 
@@ -23,7 +24,6 @@ The Dashboard gives the user access to the options "Start Reading" and "See Stat
 
 ![dashboard](https://user-images.githubusercontent.com/26389841/35991049-329625da-0cc3-11e8-96d1-130db7d332b8.jpg)
 
-
 ## Reader:
 The Reader is the main feature of Readativity.  Once the user clicks Start Reading, they will be instantly served an article that is pulled from the Google News API based on their 3 interests.  The User also has access to the New Article button which will randomly serve up another article based on the user's interests.
 
@@ -32,30 +32,28 @@ The Reader is the main feature of Readativity.  Once the user clicks Start Readi
 ## Stats:
 The Stats page will display the user's reading statistics on 2 graphs.  The "Time Reading this Week" graph is a line graph that plots the user's total minutes spent reading per day across the span of a week.  "Time Reading by Interest" is a radial graph that plots the minutes spent reading each by interest.  In addition, the user can check their "Article History".
 
+![stats](https://user-images.githubusercontent.com/26389841/35991887-dc0fc290-0cc5-11e8-86ef-bc4ef6d24a9b.gif)
+
 ## Article History:
 Article History will display a list of articles sorted by the date read and the article headline.
 
+![history](https://user-images.githubusercontent.com/26389841/35991862-c55eb844-0cc5-11e8-9148-48f1cd5e684a.gif)
 
 # Installation
 After forking and cloning this repo:
 ```
-cd goal-tracker-react
+cd into Frontend
 npm install
 
 ```
 This command will move you into the app directory and install all the necessary dependencies.
 
 # API Integration
-For more information about the knex.js powered database please see the following links:
-
-Deployed Database:
-
-
-Database Github:
-
+Readativity utilizes Google's News API to serve up articles based on user preferences.
+https://newsapi.org/s/google-news-api
 
 # License
-MIT License Copyright (c) 2018 Kevin Kingdon
+MIT License Copyright (c) 2018 Readativity
 
 # Our Team
 
@@ -69,5 +67,3 @@ MIT License Copyright (c) 2018 Kevin Kingdon
 | ------------- | ------------- | ------------- | ------------- |
 | Github| [/collinsbj](https://github.com/collinsbj) | Github| [/mrsaxmannjr](https://github.com/mrsaxmannjr) |
 | LinkedIn   | [/in/bjcollinswebdev/](https://www.linkedin.com/in/bjcollinswebdev/) | LinkedIn   | [/in/mrsaxmannjr/](https://www.linkedin.com/in/mrsaxmannjr/) |
-
-
