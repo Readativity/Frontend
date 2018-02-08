@@ -1,7 +1,7 @@
 # Welcome to Readativity:
 Readativity is where reading meets productivity! This app encourages you to read more while making the most of your time. You can keep track of how long you read everyday and check how much you read over the week.  
 
-[Deployed link}(https://readativity-app.herokuapp.com/)
+[Deployed link](https://readativity-app.herokuapp.com/)
 
 ![home](https://user-images.githubusercontent.com/26389841/35991086-44684720-0cc3-11e8-8dea-217afda081e8.jpg)
 
