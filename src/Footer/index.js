@@ -30,7 +30,7 @@ class HomeFooter extends React.Component {
 
 export default HomeFooter;
 
-const FooterNav = styled.header`
+const FooterNav = styled.footer`
   display: flex;
   flex-flow: row;
   justify-content: center;

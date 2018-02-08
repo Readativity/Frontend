@@ -58,7 +58,7 @@ label {
 }
 
 .checkedItem {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 #splash-image {
@@ -100,7 +100,7 @@ label {
   height: 4rem;
   border-top: solid black 1px;
   border-bottom: solid black 1px;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 .ReactModal__Overlay {
