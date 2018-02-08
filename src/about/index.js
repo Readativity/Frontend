@@ -113,7 +113,7 @@ const Break = styled.div`
 
 const Wrapper = styled.div`
   padding 1rem 0 2rem 0;
-  height: 70vh;
+  height: 62vh;
   overflow: scroll;
   width: 50vw;
   @media screen and (min-width: 320px) and (max-width: 480px) {
@@ -122,6 +122,7 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
+  height: 70vh;
   display: flex;
   justify-content: center;
 `;
