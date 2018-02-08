@@ -1,4 +1,5 @@
 describe("Readativity", function() {
+  const randomNum = Math.floor(Math.random() * 1000);
   it("Should have two buttons on main page", function() {
     cy.visit("localhost:3000");
     cy.get("main > div").should("have.length.of", 2);
@@ -14,7 +15,7 @@ describe("Readativity", function() {
     cy
       .get("#CreateAccount input")
       .eq(0)
-      .type("newuser17");
+      .type(`${randomNum}`);
     cy
       .get("#CreateAccount input")
       .eq(1)
@@ -58,7 +59,7 @@ describe("Readativity", function() {
     cy
       .get(".ReactModalPortal form input")
       .eq(0)
-      .type("newuser17");
+      .type(`${randomNum}`);
     cy
       .get(".ReactModalPortal form input")
       .eq(1)
