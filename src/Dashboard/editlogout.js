@@ -6,8 +6,8 @@ const EditLogout =(props)=> {
 
   return (
     <Container>
-      <StyledLink2 to="/" onClick={(event)=> {props.logout(event)}}>Logout</StyledLink2>
-      <StyledLink>Edit Settings</StyledLink>
+      <StyledLink to="/" onClick={(event)=> {props.logout(event)}}>Logout</StyledLink>
+      <StyledLink to="/editaccount">Edit Settings</StyledLink>
     </Container>
   )
 
@@ -25,13 +25,8 @@ const Container = styled.div `
   align-items: center;
 `
 
-const StyledLink = styled.h1 `
-  font-size: 1.5rem;
-  color: var(--blue);
-  font-family: var(--open-sans);
-`
 
-const StyledLink2 = styled(Link) `
+const StyledLink = styled(Link) `
   font-size: 1.5rem;
   color: var(--blue);
   font-family: var(--open-sans);
