@@ -51,6 +51,10 @@ export default class CategoryReading extends React.Component {
 
 const Container = styled.div`
   padding: 1rem;
+  width: 50vh;
+  @media screen and (min-width: 320px) and (max-width: 480px) {
+    width: 90vw;
+  }
 `;
 
 const Title = styled.h2`
