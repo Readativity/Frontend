@@ -275,10 +275,10 @@ class Form extends React.Component {
 
             <SubmitButton type="submit" name="submit" value="Submit" />
           </UserForm>
-          <p className={this.props.confirmUser ? " " : "hidden"}>
+          <Paragraph className={this.props.confirmUser ? " " : "hidden"}>
             {" "}
             Thank you for creating an account. Return to Home to Login.
-          </p>
+          </Paragraph>
         </Wrapper>
       </Container>
     );
@@ -386,4 +386,9 @@ const Wrapper = styled.div`
 const Container = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+const Paragraph = styled.h2`
+  padding = 1rem 0 2rem 0;
+  font-size = 2rem;
 `;
