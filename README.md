@@ -59,8 +59,8 @@ MIT License Copyright (c) 2018 Readativity
 
 |<img src="https://user-images.githubusercontent.com/32685092/35702971-d0b4e966-0757-11e8-8098-c2819dff5e58.png" width="100"> | Kevin Kingdon    | <img src="https://user-images.githubusercontent.com/32685092/35991335-224fec00-0cc4-11e8-8b53-3d900d4eb770.png" width="100"> | Carolyn Selheim |
 | ------------- | ------------- | ------------- | ------------- |
-| Github | [/kmkingdon](https://github.com/kmkingdon) || Github | [/CarolynSM](https://github.com/CarolynSM) |
-| LinkedIn   | [/in/kevin-kingdon/](https://www.linkedin.com/in/kevin-kingdon/) || LinkedIn   | [/in/carolynselheimmiller/](https://www.linkedin.com/in/carolynselheimmiller/) |
+| Github | [/kmkingdon](https://github.com/kmkingdon) | Github | [/CarolynSM](https://github.com/CarolynSM) |
+| LinkedIn   | [/in/kevin-kingdon/](https://www.linkedin.com/in/kevin-kingdon/) | LinkedIn   | [/in/carolynselheimmiller/](https://www.linkedin.com/in/carolynselheimmiller/) |
 
 
 |<img src="https://user-images.githubusercontent.com/32685092/35991351-3021c8c6-0cc4-11e8-9797-7d36a5ed83b0.png" width="100"> | Bj Collins   | <img src="https://user-images.githubusercontent.com/32685092/35991367-3e12abb2-0cc4-11e8-93a4-9da6ab4b00a8.jpg" width="100"> | James Mann|
