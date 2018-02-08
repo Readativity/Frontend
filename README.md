@@ -43,8 +43,7 @@ Article History will display a list of articles sorted by the date read and the 
 # Installation
 After forking and cloning this repo:
 ```
-cd goal-tracker-react
-=======
+
 cd into Frontend
 npm install
 
