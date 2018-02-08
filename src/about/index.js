@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const About = props => {
   return (
-    <div>
-      <div className="main">
+    <Container>
+      <Wrapper className="main">
         <InfoContainer>
           <Subtitle> What is Readativity?</Subtitle>
           <Information>
@@ -58,8 +58,8 @@ const About = props => {
             </a>
           </Information>
         </InfoContainer>
-      </div>
-    </div>
+      </Wrapper>
+    </Container>
   );
 };
 
@@ -95,4 +95,19 @@ const Break = styled.div`
   height: 2px;
   margin-top: 1rem;
   width: 85%;
+`;
+
+const Wrapper = styled.div`
+  padding 1rem 0 2rem 0;
+  height: 70vh;
+  overflow: scroll;
+  width: 50vw;
+  @media screen and (min-width: 320px) and (max-width: 480px) {
+    width: 100vw;
+  }
+`;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
 `;
