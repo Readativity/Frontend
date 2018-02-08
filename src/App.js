@@ -23,7 +23,7 @@ class App extends Component {
       warning: false,
       warningUsername: false,
       confirmUser: false,
-      confirmEdit: false,
+      confirmEdit: false
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -143,7 +143,7 @@ class App extends Component {
       secondInterest: catagoriesArray[1],
       thirdInterest: catagoriesArray[2]
     };
-    this.submitEditUser(form, userId)
+    this.submitEditUser(form, userId);
     event.target.reset();
   }
 

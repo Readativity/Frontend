@@ -91,7 +91,9 @@ class Form extends React.Component {
                 name="username"
                 onChange={this.props.checkUserName}
               />
-              <UsernameWarning className={this.props.warningUsername ? "" : "hidden"}>
+              <UsernameWarning
+                className={this.props.warningUsername ? "" : "hidden"}
+              >
                 *Username already exists*
               </UsernameWarning>
 
@@ -116,10 +118,14 @@ class Form extends React.Component {
                   this.confirmPassword(event.target.value);
                 }}
               />
-              <PasswordAcceptance className={this.state.passwordMatch ? "" : "hidden"}>
+              <PasswordAcceptance
+                className={this.state.passwordMatch ? "" : "hidden"}
+              >
                 *Passwords Match*
               </PasswordAcceptance>
-              <UsernameWarning className={this.state.passwordWrong ? "" : "hidden"}>
+              <UsernameWarning
+                className={this.state.passwordWrong ? "" : "hidden"}
+              >
                 *Passwords Do Not Match*
               </UsernameWarning>
 
@@ -282,7 +288,8 @@ class Form extends React.Component {
           </UserForm>
           <p className={this.props.confirmEdit ? " " : "hidden"}>
             {" "}
-            Thank you for editing your account. Return to Dashboard to continue reading.
+            Thank you for editing your account. Return to Dashboard to continue
+            reading.
           </p>
         </Wrapper>
       </Container>

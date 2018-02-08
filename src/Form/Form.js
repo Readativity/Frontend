@@ -91,7 +91,9 @@ class Form extends React.Component {
                 placeholder="Create a Username"
                 onChange={this.props.checkUserName}
               />
-              <UsernameWarning className={this.props.warningUsername ? "" : "hidden"}>
+              <UsernameWarning
+                className={this.props.warningUsername ? "" : "hidden"}
+              >
                 *Username already exists*
               </UsernameWarning>
 
@@ -116,10 +118,14 @@ class Form extends React.Component {
                   this.confirmPassword(event.target.value);
                 }}
               />
-              <PasswordAcceptance className={this.state.passwordMatch ? "" : "hidden"}>
+              <PasswordAcceptance
+                className={this.state.passwordMatch ? "" : "hidden"}
+              >
                 *Passwords Match*
               </PasswordAcceptance>
-              <UsernameWarning className={this.state.passwordWrong ? "" : "hidden"}>
+              <UsernameWarning
+                className={this.state.passwordWrong ? "" : "hidden"}
+              >
                 *Passwords Do Not Match*
               </UsernameWarning>
 
@@ -132,7 +138,12 @@ class Form extends React.Component {
               />
 
               <label htmlFor="email">Email Address</label>
-              <InputField required type="text" name="email" placeholder="Enter an Email address" />
+              <InputField
+                required
+                type="text"
+                name="email"
+                placeholder="Enter an Email address"
+              />
             </Inputstyle>
 
             <Title>Choose up to 3 Interests</Title>

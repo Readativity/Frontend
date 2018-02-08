@@ -22,14 +22,16 @@ export default class DailyReading extends React.Component {
   render() {
     var week = {};
     for (var i = 0; i < 7; i++) {
-      var key = new Date(new Date().setDate(new Date().getDate() - i)).toString().split(" ");
+      var key = new Date(new Date().setDate(new Date().getDate() - i))
+        .toString()
+        .split(" ");
       key.pop();
       key.pop();
       key.pop();
       var finalKey = key.join(" ");
       week[finalKey] = 0;
     }
-    console.log("week", week);
+
     for (let i = 0; i < this.props.data.length; i++) {
       if (week[this.props.data[i].date] !== null) {
         week[this.props.data[i].date] += this.props.data[i].timeReading;

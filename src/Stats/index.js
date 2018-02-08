@@ -14,12 +14,10 @@ export default class StatsDashboard extends React.Component {
 
   componentDidMount() {
     let userId = this.props.userInfo.id;
-    console.log("userID", userId);
     fetch("https://readativity.herokuapp.com/activity/" + userId)
       .then(response => response.json())
       .then(response => {
         var activityData = response.activity;
-        console.log(response.activity);
         this.setState({
           activity: activityData
         });
@@ -33,7 +31,10 @@ export default class StatsDashboard extends React.Component {
         <Container>
           <Wrapper>
             <DailyReading data={this.state.activity} />
-            <CategoryReading userInfo={this.props.userInfo} data={this.state.activity} />
+            <CategoryReading
+              userInfo={this.props.userInfo}
+              data={this.state.activity}
+            />
           </Wrapper>
           <Wrapper>
             <StyledLink to="/history"> Article History </StyledLink>
@@ -44,15 +45,6 @@ export default class StatsDashboard extends React.Component {
   }
 }
 
-// const Container = styled.div`
-//   margin-top: 0.5rem;
-//   width: 100vw;
-//   height: 15%;
-//   display: flex;
-//   flex-flow: column;
-//   justify-content: center;
-//   align-items: center;
-// `;
 
 const StyledLink = styled(Link)`
   background: #fdd130;

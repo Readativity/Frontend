@@ -5,16 +5,20 @@ import logo from "./logo.png";
 
 class Header extends React.Component {
   render() {
-    if(this.props.userInfo.id === undefined) {
+    if (this.props.userInfo.id === undefined) {
       return (
         <HeaderLogo id="header">
-          <Link to="/"><Logo src={logo} alt="logo" /></Link>
+          <Link to="/">
+            <Logo src={logo} alt="logo" />
+          </Link>
         </HeaderLogo>
       );
     } else {
       return (
         <HeaderLogo id="header">
-          <Link to="/dashboard"><Logo src={logo} alt="logo" /></Link>
+          <Link to="/dashboard">
+            <Logo src={logo} alt="logo" />
+          </Link>
         </HeaderLogo>
       );
     }

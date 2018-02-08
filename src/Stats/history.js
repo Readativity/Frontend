@@ -1,13 +1,12 @@
 import React from "react";
-import HistoryObject from './historyobject'
-
+import HistoryObject from "./historyobject";
 
 class History extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       activity: []
-    }
+    };
   }
   componentDidMount() {
     let userId = this.props.userInfo.id;
@@ -24,18 +23,18 @@ class History extends React.Component {
 
   render() {
     let activityArray = this.state.activity;
-    activityArray.sort(function(a,b){
-    return b.id - a.id;
-  })
+    activityArray.sort(function(a, b) {
+      return b.id - a.id;
+    });
 
     return (
       <ul id="history">
-      {activityArray.map(act => <HistoryObject key={act.id} activity={act} /> )}
+        {activityArray.map(act => (
+          <HistoryObject key={act.id} activity={act} />
+        ))}
       </ul>
-    )
-
+    );
   }
 }
-
 
 export default History;
