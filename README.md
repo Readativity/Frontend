@@ -49,8 +49,8 @@ npm install
 This command will move you into the app directory and install all the necessary dependencies.
 
 # API Integration
-Readativity utilizes Google's News API to serve up articles based on user preferences.
-https://newsapi.org/s/google-news-api
+Readativity utilizes [Google's News API](https://newsapi.org/s/google-news-api) to serve up articles based on user preferences.
+
 
 # License
 MIT License Copyright (c) 2018 Readativity
